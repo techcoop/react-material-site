@@ -1,7 +1,7 @@
 //import { replace } from 'react-router-redux'
 //import { globalMessage } from './ui'
-//import { getFormConfig, getFormData } from 'react-material-site/utils/form' 
-import { Xhr } from 'react-material-site/utils/xhr'
+//import { getFormConfig, getFormData } from '../utils/form' 
+import { Xhr } from '../utils/xhr'
 
 // ------------------------------------
 // Constants

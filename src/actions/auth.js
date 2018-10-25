@@ -1,6 +1,6 @@
 import { replace } from 'react-router-redux'
 import { interfaceMessage } from './ui'
-import auth from 'react-material-site/utils/auth'
+import auth from '../utils/auth'
 
 // ------------------------------------
 // Constants

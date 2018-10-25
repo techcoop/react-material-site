@@ -1,4 +1,4 @@
-import { getSupportedLanguages, getLanguage, getMessage } from 'react-material-site/utils/content'
+import { getSupportedLanguages, getLanguage, getMessage } from '../utils/content'
 
 // ------------------------------------
 // Constants
