@@ -25,26 +25,36 @@ exports.parseEnv = function (env) {
   return parsedEnv
 }
 
-exports.injectIncludePaths = function (items) {
-  const includePath = './node_modules'
-  
+exports.injectIncludePaths = function (items, includePaths = ['./node_modules'], data) {
   return items.map(use => {
     // If the loader is configured with no options, create one
     if (use.includes && use.includes('sass-loader')) {
-      use = {loader: use, options: {includePaths: [includePath]}}
+      use = {loader: use, options: {includePaths: includePaths}}
+
+      if (data) {
+        use.options.data = data
+      }
     } else if (use.loader && use.loader.includes && use.loader.includes('sass-loader')) {
       // If the loader has options already, check if it has includePaths and add accordingly
       if (use.loader.options) {
         if (use.loader.options.includePaths) {
-          use.loader.options.includePaths.push(includePath)
+          use.loader.options.includePaths.concat(includePath)
         } else {
-          use.loader.options.includePaths = [includePath]
+          use.loader.options.includePaths = includePaths
+        }
+
+        if (data) {
+          use.loader.options.data = data
         }
       } else if (use.options) {
         if (use.options.includePaths) {
-          use.options.includePaths.push(includePath)
+          use.options.includePaths.concat(includePath)
         } else {
-          use.options.includePaths = [includePath]
+          use.options.includePaths = includePaths
+        }
+
+        if (data) {
+          use.options.data = data
         }
       }
     }

@@ -1,0 +1,14 @@
+@import "@material/theme/mdc-theme.scss";
+
+// TODO refactor to abstract snackbar?
+@import "@material/snackbar/mdc-snackbar.scss";
+
+.tc-core-layout__content {
+  width: 100%;
+}
+
+@media (min-width: 848px) and (max-width: 960px) {
+  .tc-core-layout {
+    margin-top: -16px;
+  }
+}
