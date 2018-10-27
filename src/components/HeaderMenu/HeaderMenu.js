@@ -11,7 +11,7 @@ import {
 } from '@rmwc/top-app-bar'
 import Button from '../Button'
 import IconButton from '../IconButton'
-import { getLabel } from 'react-material-site/lib/utils/content'
+import { getLabel } from '../../utils/content'
 
 import './HeaderMenu.scss'
 

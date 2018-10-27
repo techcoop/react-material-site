@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cN from 'classnames'
 import { Icon } from '@rmwc/icon'
-import { getUrlType } from 'react-material-site/lib/utils/url'
+import { getUrlType } from '../../utils/url'
 
 // TODO fix imports for .css files and move to scss instead
 import '@rmwc/icon/icon.css'

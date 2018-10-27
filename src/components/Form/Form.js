@@ -13,7 +13,7 @@ import { Button } from '@rmwc/button'
 
 import Message from '../Message'
 import { LinearProgress } from '@rmwc/linear-progress'
-import { getLabel } from 'react-material-site/lib/utils/content'
+import { getLabel } from '../../utils/content'
 
 import './Form.scss'
 

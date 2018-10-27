@@ -15,7 +15,7 @@ import {
   ListItemGraphic
 } from '@rmwc/list'
 import { Icon } from '@rmwc/icon'
-import { getLabel } from 'react-material-site/lib/utils/content'
+import { getLabel } from '../../utils/content'
 
 // TODO fix imports for .css files and move to scss instead
 import '@rmwc/icon/icon.css'
