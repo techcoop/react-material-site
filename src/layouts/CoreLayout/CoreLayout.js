@@ -115,7 +115,9 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => ({
   ui: state.ui,
   auth: state.auth,
+  content: state.content,
   menu: state.menu
 })
 
+// TODO reconsider that this is connected, leave up to site to do this?
 export default connect(mapStateToProps, mapDispatchToProps)(CoreLayout)

@@ -25,6 +25,7 @@
     "framework"
   ],
   "dependencies": {
+    "@babel/cli": "^7.1.2",
     "@rmwc/button": "^3.0.4",
     "@rmwc/card": "^3.0.4",
     "@rmwc/checkbox": "^3.0.4",
@@ -49,10 +50,6 @@
     "@rmwc/top-app-bar": "^3.0.4",
     "@rmwc/typography": "^3.0.4",
     "auth0-js": "^9.8.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.4",
-    "babel-preset-react": "^6.24.1",
     "dotenv": "^6.0.0",
     "dotenv-expand": "^4.2.0",
     "enquire.js": "^2.1.6",

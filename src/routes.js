@@ -41,21 +41,45 @@ export const getRouterData = (routes, views, authenticated) => {
   return {route, menu}
 }
 
-// TODO test coverage
-export const getRouterSwitch = (data, store, callback, NotFound) => (
+// TODO test coverage now that it's a real function
+// TODO figure out better way to handle login / signin route
+export const getRouterSwitch = (data, store, extras) => (
   <Switch>
     {data.map((route, index) => (<Route key={index} path={route.route} exact render={(props) => <route.view {...props} />} />))}
 
-    {callback && 
+    {Object.keys(extras).map((type) => {
+      if (type === 'callack' || type === 'NotFound' || type === 'auth') {
+        return undefined
+      }
+
+      console.log('EXTRA')
+      console.log(type)
+    })}
+
+    {extras.callback && 
       <Route path='/callback' render={(props) => {
         if (/access_token|id_token|error/.test(props.location.hash)) {
-          store.dispatch(callback())
+          store.dispatch(extras.callback())
         }
 
         return null
-      }}/>
+      }} />
     }
 
-    {NotFound && <Route path='/*' render={(props) => <NotFound {...props} />} />}
+    {extras.auth && 
+      <Route path='/login' render={(props) => {
+        store.dispatch(extras.auth())
+        return null
+      }} />
+    }
+
+    {extras.auth && 
+      <Route path='/signin' render={(props) => {
+        store.dispatch(extras.auth())
+        return null
+      }} />
+    }
+
+    {extras.NotFound && <Route path='/*' render={(props) => <extras.NotFound {...props} />} />}
   </Switch>
 )

@@ -55,19 +55,15 @@ it('should have a Sign In menu item when not authenticated', () => {
     auth: {
       enabled: true,
       isAuthenticated: () => (false)
-    },
-    login: () => jest.fn()
+    }
   })
   
   const wrapper = shallow(<AuthMenu {...props} />)
   
-  const item = (
-    <MenuItem onClick={props.login}>
-      Sign In
-    </MenuItem>
-  )
+  const linkProps = wrapper.find(Link).props()
 
-  expect(wrapper).toContainReact(item)
+  expect(linkProps.to).toEqual('/signin')
+  expect(linkProps.children).toEqual('Sign In')
 })
 
 it('should have a Logout menu item when authenticated', () => {

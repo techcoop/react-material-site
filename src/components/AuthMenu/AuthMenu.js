@@ -21,8 +21,10 @@ export const AuthMenu = (props) => (
   >
     {!props.auth.isAuthenticated() && 
       <div>
-        <MenuItem onClick={props.login}>
-          Sign In
+        <MenuItem wrap>
+          <Link to='/signin'>
+            Sign In
+          </Link>
         </MenuItem>
       </div>}
 
