@@ -112,7 +112,7 @@ const mapDispatchToProps = {
   logout: logout
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   ui: state.ui,
   auth: state.auth,
   content: state.content,

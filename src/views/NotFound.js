@@ -5,7 +5,7 @@ import { openChat } from '../utils/chat'
 
 import './NotFound.scss'
 
-export const NotFound = (props) => (
+export const NotFound = props => (
   <CoreLayout {...props}>
     <div>
       <div>We're sorry, we couldn't find this page.</div>

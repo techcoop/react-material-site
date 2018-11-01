@@ -19,7 +19,7 @@ const getElements = (items, props) => {
   return items.map((item, index) => (<Typography key={index} {...props}>{item}</Typography>))
 }
 
-export const Content = (props) => (
+export const Content = props => (
   <div className={cN('tc-content', props.className)} style={props.style}>
     {props.header && 
       getElements(

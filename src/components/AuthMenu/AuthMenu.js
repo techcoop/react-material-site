@@ -9,7 +9,7 @@ import './AuthMenu.scss'
 
 // TODO active class name for settings URL
 // TODO review classes and remove redundancies
-export const AuthMenu = (props) => (
+export const AuthMenu = props => (
   <SimpleMenu
     style={props.style}
     className={cN('tc-auth-menu', props.className)}

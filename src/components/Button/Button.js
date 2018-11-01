@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import './Button.scss'
 // TODO add className and prop passing
-export const Button = (props) => (
+export const Button = props => (
   <MButton {...props}>
     {props.to 
       ? <Link to={props.to}>

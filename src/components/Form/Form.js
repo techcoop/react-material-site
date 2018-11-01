@@ -43,7 +43,7 @@ import './Form.scss'
 
 // TODO support for field icons
 
-export const Form = (props) => (
+export const Form = props => (
   <form 
     data-form-id={props.id}
     data-method={props.method}

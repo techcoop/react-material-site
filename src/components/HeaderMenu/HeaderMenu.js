@@ -41,7 +41,7 @@ const menuItems = (sections) => {
   return items
 }
 
-export const HeaderMenu = (props) => (
+export const HeaderMenu = props => (
   <TopAppBar className={cN('tc-header-menu', props.className)}>
     <TopAppBarRow>
       <TopAppBarSection alignStart>

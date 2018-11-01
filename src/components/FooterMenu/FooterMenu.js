@@ -9,7 +9,7 @@ import './FooterMenu.scss'
 
 // TODO make extensible with support for passing child elements?
 // TODO display site URLs from menu items in columns of links, configurable
-export const FooterMenu = (props) => (
+export const FooterMenu = props => (
   <footer className={cN('tc-footer', props.className)} style={props.style}>
     <div className='tc-footer__bottom'>
       <Grid>

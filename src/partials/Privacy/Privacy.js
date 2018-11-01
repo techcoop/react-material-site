@@ -1,8 +1,8 @@
 import React from 'react'
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import cN from 'classnames'
 import { Link } from 'react-router-dom'
 
-import CoreLayout from '../../layouts/CoreLayout'
 import Content from '../../components/Content'
 
 import './Privacy.scss'
@@ -15,12 +15,12 @@ const getLink = (url, text = 'this url') => {
   }
 }
 
-export const Privacy = (props) => (
-  <CoreLayout {...props} className='tc-privacy-view'>
+export const Privacy = props => (
+  <div className={cN('tc-privacy', props.className)} style={props.style}>
     <Content use='headline4'>Privacy Policy</Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='1.	Introduction'
     >
@@ -42,18 +42,18 @@ export const Privacy = (props) => (
         1.4	Our website incorporates privacy controls which affect how we will process your 
         personal data. By using the privacy controls, you can specify whether you would like 
         to receive direct marketing communications. 
-        {process.env.PRIVACY_SETTINGS && 
-          <span>You can access the privacy controls via{getLink(process.env.PRIVACY_SETTINGS, 'settings')}
+        {props.settings && 
+          <span>You can access the privacy controls via{getLink(props.settings, 'settings')}
           (you must be logged in to access controls).</span>}
       </div>
       <div>
-        1.5	In this policy, "we", "us" and "our" refer to {process.env.SITE_DISPLAY}.
+        1.5	In this policy, "we", "us" and "our" refer to {props.siteDisplay}.
         For more information about us, see Section 13.
       </div>
     </Content>
     
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='2.	Credit'
     >
@@ -64,7 +64,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='3.	How we use your personal data'
     >
@@ -214,7 +214,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='4.	Providing your personal data to others'
     >
@@ -222,10 +222,10 @@ export const Privacy = (props) => (
         4.1	We may disclose your personal data to any member of our group of companies (this means 
         our subsidiaries, our ultimate holding company and all its subsidiaries) insofar as reasonably 
         necessary for the purposes, and on the legal bases, set out in this policy. 
-        {process.env.PRIVACY_SUBSIDIARIES && 
+        {props.subsidiaries && 
           <span>
              Information about our group of companies can be found at
-             {getLink(process.env.PRIVACY_SUBSIDIARIES)}
+             {getLink(props.subsidiaries)}
           </span>}
       </div>
       <div>
@@ -237,22 +237,22 @@ export const Privacy = (props) => (
       <div>
         4.3	We may disclose information about your location or services you have requested to our 
         suppliers or subcontractors
-        {process.env.PRIVACY_SUBCONTRACTORS && 
-          <span>identified at{getLink(process.env.PRIVACY_SUBCONTRACTORS)}</span>}
+        {props.subcontractors && 
+          <span>identified at{getLink(props.subcontractors)}</span>}
         insofar as reasonably necessary for fufill any requests for services made by you on this website.
       </div>
       <div>
         4.4	Financial transactions relating to our website and services are handled by our payment 
         services providers
-        {(process.env.PRIVACY_PSP_NAME && process.env.PRIVACY_PSP_URL) && 
-          <span> ({getLink(process.env.PRIVACY_PSP_URL, process.env.PRIVACY_PSP_NAME)})</span>}. 
+        {(props.PSPName && props.PSPURL) && 
+          <span> ({getLink(props.PSPURL, props.PSPName)})</span>}. 
         We will share transaction data with our payment services providers only to the extent necessary 
         for the purposes of processing your payments, refunding such payments and dealing with complaints 
         and queries relating to such payments and refunds. 
-        {process.env.PRIVACY_PSP_POLICY && 
+        {props.PSPPolicy && 
           <span>
             You can find information about the payment services providers' privacy policies 
-            and practices at{getLink(process.env.PRIVACY_PSP_POLICY)}.
+            and practices at{getLink(props.PSPPolicy)}.
           </span>}
       </div>
       <div>
@@ -274,7 +274,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='5.	International transfers of your personal data'
     >
@@ -284,8 +284,8 @@ export const Privacy = (props) => (
       </div>
       <div>
         5.2	We and our other group companies have offices and facilities 
-        {process.env.PRIVACY_COUNTRY_OFFICES
-          ? <span>in {process.env.PRIVACY_COUNTRY_OFFICES}</span>
+        {props.countryOffices
+          ? <span>in {props.countryOffices}</span>
           : <span>countries outside the EU</span>}.
         The European Commission has made an "adequacy decision" with respect to the data protection laws 
         of each of these countries. Transfers to each of these countries will be protected by appropriate 
@@ -295,8 +295,8 @@ export const Privacy = (props) => (
       </div>
       <div>
         5.3	The hosting facilities for our website are situated in 
-        {process.env.PRIVACY_COUNTRY_HOSTING
-          ? <span>in {process.env.PRIVACY_COUNTRY_HOSTING}</span>
+        {props.countryHosting
+          ? <span>in {props.countryHosting}</span>
           : <span>countries outside the EU</span>}.
         The European Commission has made an "adequacy decision" with respect to the data protection laws 
         of each of these countries. Transfers to each of these countries will be protected by appropriate 
@@ -306,8 +306,8 @@ export const Privacy = (props) => (
       </div>
       <div>
         5.4	Specify category or categories of supplier or subcontractor are situated include
-        {process.env.PRIVACY_COUNTRY_SUPPLIERS
-          ? <span>in {process.env.PRIVACY_COUNTRY_SUPPLIERS}</span>
+        {props.countrySuppliers
+          ? <span>in {props.countrySuppliers}</span>
           : <span>countries outside the EU</span>}.
         The European Commission has made an "adequacy decision" with respect to the data protection laws 
         of each of these countries. Transfers to each of these countries will be protected by appropriate 
@@ -322,7 +322,7 @@ export const Privacy = (props) => (
       </div>
     </Content>
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='6.	Retaining and deleting personal data'
     >
@@ -369,7 +369,7 @@ export const Privacy = (props) => (
     </Content>
     
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='7.	Amendments'
     >
@@ -386,7 +386,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='8.	Your rights'
     >
@@ -430,8 +430,8 @@ export const Privacy = (props) => (
         and the recipients of the personal data. Providing the rights and freedoms of others are not affected, we 
         will supply to you a copy of your personal data. The first copy will be provided free of charge, but 
         additional copies may be subject to a reasonable fee.
-        {process.env.PRIVACY_PERSONAL_DATA && 
-          <span> You can access your personal data by visiting{getLink(process.env.PRIVACY_PERSONAL_DATA, 'this url')}
+        {props.personalDataUrl && 
+          <span> You can access your personal data by visiting{getLink(props.personalDataUrl, 'this url')}
           when logged into our website.</span>}
       </div>
       <div>
@@ -508,7 +508,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='9.	About cookies'
     >
@@ -530,7 +530,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='10.	Cookies that we use'
     >
@@ -570,7 +570,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='11.	Cookies used by our service providers'
     >
@@ -586,13 +586,13 @@ export const Privacy = (props) => (
       </div>
       <div>
         11.3	
-        {process.env.PRIVACY_ADWORDS && 
+        {props.adwords && 
           <span>
             We publish Google AdSense interest-based advertisements on our website. These 
             are tailored by Google to reflect your interests. To determine your interests, Google 
             will track your behaviour on our website and on other websites across the web using cookies.
           </span>}
-        {!process.env.PRIVACY_ADWORDS && 
+        {!props.adwords && 
           <span>
             We publish Google AdSense advertisements on our website. To determine your interests, 
             Google will track your behaviour on our website and on other websites across the web 
@@ -614,7 +614,7 @@ export const Privacy = (props) => (
           </span>}
       </div>
       {/* TODO support for other chat clients (intercom?) */}
-      {process.env.CHAT_CLIENT_ID && 
+      {props.chatClientId && 
           <div>
             11.4	We use Crisp chat to support this website. This service uses cookies to store 
             your identiy for use with our in app support chat software to retain history of your 
@@ -625,7 +625,7 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='12.	Managing cookies'
     >
@@ -686,21 +686,21 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='13.	Our details'
     >
       <div>
         {/* TODO add support for optional parameters? */}
-        13.1	This website is owned and operated by {process.env.PRIVACY_COMPANY_LEGAL_NAME}.
+        13.1	This website is owned and operated by {props.companyLegalName}.
       </div>
       <div>
-        13.2	We are registered in {process.env.PRIVACY_COMPANY_LEGAL_NAME} under registration 
-        number {process.env.PRIVACY_COMPANY_LEGAL_NUMBER}, and our registered office is at 
-        {process.env.PRIVACY_COMPANY_LEGAL_ADDRESS}.
+        13.2	We are registered in {props.companyLegalName} under registration 
+        number {props.companyLegalNumber}, and our registered office is at 
+        {props.companyLegalAddress}.
       </div>
       <div>
-        13.3	Our principal place of business is at {process.env.PRIVACY_COMPANY_OFFICE_ADDRESS}.
+        13.3	Our principal place of business is at {props.companyOfficeAddress}.
       </div>
       <div>
         13.4	You can contact us:
@@ -709,8 +709,8 @@ export const Privacy = (props) => (
         </div>
         <div>
           (b)	using our website contact form
-          {process.env.PRIVACY_COMPANY_CONTACT && 
-            <span> at {getLink(process.env.PRIVACY_COMPANY_CONTACT)}</span>};
+          {props.companyLegalContact && 
+            <span> at {getLink(props.companyLegalContact)}</span>};
         </div>
         <div>
           (c)	by telephone, on the contact number published on our website from time to time;
@@ -718,7 +718,7 @@ export const Privacy = (props) => (
         <div>
           (d)	by email, using the email address published on our website from time to time;
         </div>
-        {process.env.CHAT_CLIENT_ID &&
+        {props.chatClientId &&
           <div>
             (f) by chat, using the chat application on the website, if currently available.
           </div>}
@@ -726,23 +726,43 @@ export const Privacy = (props) => (
     </Content>
 
     <Content 
-      className='tc-privacy-view__section'
+      className='tc-privacy__section'
       headerType='headline5'
       header='14.	Data protection officer'
     >
       <div>
         14.1	Our data protection officer's contact details are: 
-         {process.env.PRIVACY_COMPANY_OFFICER}.
+         {props.companyLegalOfficer}.
       </div>
     </Content>
-  </CoreLayout>
+  </div>
 )
 
-// TODO define props
 Privacy.defaultProps = {
+
 }
 
 Privacy.propTypes = {
+  siteDisplay: PropTypes.string.isRequired,
+  companyLegalName: PropTypes.string.isRequired,
+  companyLegalNumber: PropTypes.string.isRequired,
+  companyLegalAddress: PropTypes.string.isRequired,
+  companyOfficeAddress: PropTypes.string.isRequired,
+  companyLegalOfficer: PropTypes.string.isRequired,
+  companyLegalContact: PropTypes.string,
+
+  chatClientId: PropTypes.string,
+  settings: PropTypes.string,
+  subsidiaries: PropTypes.string,
+  subcontractors: PropTypes.string,
+  PSPName: PropTypes.string,
+  PSPURL: PropTypes.string,
+  PSPPolicy: PropTypes.string,
+  countryOffices: PropTypes.string,
+  countryHosting: PropTypes.string,
+  countrySuppliers: PropTypes.string,
+  personalDataUrl: PropTypes.string,
+  adwords: PropTypes.bool,
 }
 
 export default Privacy

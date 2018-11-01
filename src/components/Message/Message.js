@@ -7,7 +7,7 @@ import './Message.scss'
 
 // TODO make dissimable?
 // TODO make configurable body style / class?
-export const Message = (props) => (
+export const Message = props => (
   <Elevation z={props.elevation} className={cN('tc-message', props.className)} style={props.style}>
     <div className='tc-message__body'>
       {props.value}

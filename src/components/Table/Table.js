@@ -18,6 +18,7 @@ import './Table.scss'
 
 // TODO implement handling for numbers
 // TODO implement handling for sorting
+// TODO improve support for error cases
 /*
 <DataTableHeadCell
   alignEnd
@@ -32,7 +33,7 @@ import './Table.scss'
 */
 // TODO implement the rest of the functionality from data tables
 // https://jamesmfriedman.github.io/rmwc/data-tables
-export const Table = (props) => (
+export const Table = props => (
   <DataTable style={props.style} className={cN('tc-table', props.className, {'tc-table_wrap': props.wrap})}>
     <DataTableContent>
       <DataTableHead>

@@ -48,12 +48,11 @@ export const getRouterSwitch = (data, store, extras) => (
     {data.map((route, index) => (<Route key={index} path={route.route} exact render={(props) => <route.view {...props} />} />))}
 
     {Object.keys(extras).map((type) => {
-      if (type === 'callack' || type === 'NotFound' || type === 'auth') {
+      if (type === 'callback' || type === 'NotFound' || type === 'auth') {
         return undefined
       }
 
-      console.log('EXTRA')
-      console.log(type)
+      // TODO setup manual routes
     })}
 
     {extras.callback && 

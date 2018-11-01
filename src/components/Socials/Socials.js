@@ -19,7 +19,7 @@ const getSocials = (items) => {
   return items.map((item) => ({type: getUrlType(item), url: item}))
 }
 
-export const Socials = (props) => (
+export const Socials = props => (
   <div className={cN('tc-socials', props.className)} style={props.style}>
     {props.items && getSocials(props.items).map((item, index) => (
       <a 

@@ -17,7 +17,7 @@ const acceptNotice = (key, days) => {
 }
 
 // TODO would nice to animate close
-export const CookieNotice = (props) => (
+export const CookieNotice = props => (
   showNotice(props.acceptKey) ?
     <div id={props.acceptKey} className={cN('tc-cookie-notice', props.className)} style={props.style}>
       <Content

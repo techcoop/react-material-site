@@ -38,7 +38,7 @@ const getIconOptions = (icon) => {
   return {}
 }
 
-export const DrawerMenu = (props) => (
+export const DrawerMenu = props => (
   <Drawer 
     modal={!props.maximized}
     open={props.open}

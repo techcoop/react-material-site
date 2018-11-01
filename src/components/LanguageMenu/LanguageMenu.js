@@ -8,7 +8,7 @@ import './LanguageMenu.scss'
 
 // TODO display selected language in anchor?
 // TODO implement full language name option, 3 column grid?
-export const LanguageMenu = (props) => (
+export const LanguageMenu = props => (
   <SimpleMenu
     style={props.style}
     className={cN('tc-language-menu', props.className)}

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import './IconButton.scss'
 // TODO add className and prop passing
-export const IconButton = (props) => (
+export const IconButton = props => (
   <MIconButton {...props}>
     {props.to 
       ? <Link to={props.to} />
