@@ -8,6 +8,8 @@ import { getLabel } from '../../utils/content'
 
 import './Cookies.scss'
 
+// ********** WARNING
+// The use of this partial does not constitute legal advice but instead is intended as a starting place and placeholder
 export const Cookies = props => (
   <div className={cN('tc-cookies', props.className)} style={props.style}>
 

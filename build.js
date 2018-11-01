@@ -3,7 +3,19 @@ const { exec, execSync } = require('child_process')
 
 // Compile babel
 const cmd = `babel src --out-dir lib`
-execSync(cmd)
+execSync(cmd, (err, stdout, stderr) => {
+  if (err) {
+    console.error(err)
+  }
+
+  if (stdout) {
+    console.log(stdout)
+  }
+
+  if (stderr) {
+    console.log(stderr)
+  }
+})
 
 // Copies .scss files to lib
 glob('src/**/*.scss', {}, function(err, files) {

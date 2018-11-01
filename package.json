@@ -50,6 +50,7 @@
     "@rmwc/top-app-bar": "^3.0.4",
     "@rmwc/typography": "^3.0.4",
     "auth0-js": "^9.8.0",
+    "cross-spawn": "^6.0.5",
     "dotenv": "^6.0.0",
     "dotenv-expand": "^4.2.0",
     "enquire.js": "^2.1.6",
@@ -86,9 +87,13 @@
     "is-reachable": "^2.4.0"
   },
   "scripts": {
+    "postinstall": "yarn install && yarn build",
     "test": "react-app-rewired test --env=jsdom",
     "clean": "rimraf lib",
     "compile": "babel src --out-dir lib",
     "build": "yarn clean && node build.js"
+  },
+  "bin": {
+    "react-material-site": "./bin/index.js"
   }
 }

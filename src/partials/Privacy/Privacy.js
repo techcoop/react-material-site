@@ -15,6 +15,8 @@ const getLink = (url, text = 'this url') => {
   }
 }
 
+// ********** WARNING
+// The use of this partial does not constitute legal advice but instead is intended as a starting place and placeholder
 export const Privacy = props => (
   <div className={cN('tc-privacy', props.className)} style={props.style}>
     <Content use='headline4'>Privacy Policy</Content>
