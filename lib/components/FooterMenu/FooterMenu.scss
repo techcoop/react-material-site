@@ -1,0 +1,23 @@
+.tc-footer {
+}
+
+.tc-footer__socials {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .tc-footer__socials {
+    text-align: center;
+  }
+}
+
+.tc-footer__caption {
+  text-align: center;
+}
+
+/* TODO make color configurable */
+.tc-footer__bottom {
+  padding: 10px;
+  margin: 0 20px;
+  border-top: 1px solid #e4e4e4;
+}
