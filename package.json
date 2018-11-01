@@ -9,7 +9,10 @@
   "author": "colingagnon",
   "license": "MIT",
   "private": false,
-  "repository": "techcoop/react-material-site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techcoop/react-material-site.git"
+  },
   "files": [
     "LICENSE",
     "README.md",
