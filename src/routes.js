@@ -8,7 +8,12 @@ export const getRouterData = (routes, views, authenticated) => {
   
   routes.forEach((section) => {
     if (section.items) {
-      let menuSection = {show: () => !section.authenticated || (section.authenticated && authenticated()), items: []}
+      let menuSection = {
+        show: () => !section.authenticated || (section.authenticated && authenticated()),
+        authenticated: section.authenticated,
+        items: []
+      }
+      
       section.items.forEach((item) => {
         // Route
         if (item.route && item.view) {
@@ -47,13 +52,15 @@ export const getRouterSwitch = (data, store, extras) => (
   <Switch>
     {data.map((route, index) => (<Route key={index} path={route.route} exact render={(props) => <route.view {...props} />} />))}
 
+    {/*
     {Object.keys(extras).map((type) => {
-      if (type === 'callback' || type === 'NotFound' || type === 'auth') {
+      if (type === 'callback' || type === 'NotFound' || type === 'login' || type === 'logout') {
         return undefined
       }
 
       // TODO setup manual routes
     })}
+    */}
 
     {extras.callback && 
       <Route path='/callback' render={(props) => {
@@ -65,16 +72,30 @@ export const getRouterSwitch = (data, store, extras) => (
       }} />
     }
 
-    {extras.auth && 
-      <Route path='/login' render={(props) => {
-        store.dispatch(extras.auth())
+    {extras.logout && 
+      <Route path='/logout' render={(props) => {
+        store.dispatch(extras.logout())
         return null
       }} />
     }
 
-    {extras.auth && 
+    {extras.logout && 
+      <Route path='/signout' render={(props) => {
+        store.dispatch(extras.logout())
+        return null
+      }} />
+    }
+
+    {extras.login && 
+      <Route path='/login' render={(props) => {
+        store.dispatch(extras.login())
+        return null
+      }} />
+    }
+
+    {extras.login && 
       <Route path='/signin' render={(props) => {
-        store.dispatch(extras.auth())
+        store.dispatch(extras.login())
         return null
       }} />
     }
