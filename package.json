@@ -27,8 +27,7 @@
     "rmwc",
     "framework"
   ],
-  "dependencies": {
-    "@babel/cli": "^7.1.2",
+  "peerDependencies": {
     "@rmwc/button": "^3.0.4",
     "@rmwc/card": "^3.0.4",
     "@rmwc/checkbox": "^3.0.4",
@@ -53,41 +52,34 @@
     "@rmwc/top-app-bar": "^3.0.4",
     "@rmwc/typography": "^3.0.4",
     "auth0-js": "^9.8.0",
-    "cross-spawn": "^6.0.5",
-    "dotenv": "^6.0.0",
-    "dotenv-expand": "^4.2.0",
     "enquire.js": "^2.1.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "form-google-sheets": "^0.1.1",
-    "hyperform": "^0.9.9",
     "icons-ceivable": "^0.1.0",
     "jest-enzyme": "^7.0.0",
     "json-google-docs": "^0.2.0",
-    "mutation-observer": "^1.0.3",
     "node-sass": "^4.9.3",
     "react": "^16.2.0",
     "react-app-rewired": "^1.6.2",
     "react-dom": "^16.2.0",
-    "react-dropzone": "^4.2.11",
-    "react-hot-loader": "^4.3.11",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.8",
     "react-scripts": "^2.0.5",
     "react-test-renderer": "^16.1.1",
-    "react-transition-group": "^2.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.6.2",
-    "source-map-explorer": "^1.6.0",
-    "superagent": "^4.0.0-beta.5",
-    "webpack-bundle-analyzer": "^3.0.3"
+    "superagent": "^4.0.0-beta.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "chokidar": "^2.0.3",
-    "is-reachable": "^2.4.0"
+    "cross-spawn": "^6.0.5",
+    "is-reachable": "^2.4.0",
+    "rimraf": "^2.6.2",
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "scripts": {
     "test": "react-app-rewired test --env=jsdom",
