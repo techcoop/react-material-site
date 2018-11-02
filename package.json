@@ -52,11 +52,14 @@
     "@rmwc/top-app-bar": "^3.0.4",
     "@rmwc/typography": "^3.0.4",
     "auth0-js": "^9.8.0",
+    "chokidar": "^2.0.3",
+    "cross-spawn": "^6.0.5",
     "enquire.js": "^2.1.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "form-google-sheets": "^0.1.1",
     "icons-ceivable": "^0.1.0",
+    "is-reachable": "^2.4.0",
     "jest-enzyme": "^7.0.0",
     "json-google-docs": "^0.2.0",
     "node-sass": "^4.9.3",
@@ -71,15 +74,12 @@
     "react-test-renderer": "^16.1.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "superagent": "^4.0.0-beta.5"
+    "rimraf": "^2.6.2",
+    "superagent": "^4.0.0-beta.5",
+    "webpack-bundle-analyzer": "^3.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "chokidar": "^2.0.3",
-    "cross-spawn": "^6.0.5",
-    "is-reachable": "^2.4.0",
-    "rimraf": "^2.6.2",
-    "webpack-bundle-analyzer": "^3.0.3"
+    "@babel/cli": "^7.1.2"
   },
   "scripts": {
     "test": "react-app-rewired test --env=jsdom",
