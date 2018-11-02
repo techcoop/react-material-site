@@ -31,7 +31,7 @@ export const CoreLayout = (props) => (
         <LanguageMenu language={props.ui.language} languages={props.ui.languages} onClick={props.languageUpdate} />}
 
       {props.auth.enabled &&   
-        <AuthMenu auth={props.auth} login={props.login} logout={props.logout} />}
+        <AuthMenu auth={props.auth} language={props.ui.language} sections={props.menu['auth']} login={props.login} logout={props.logout} />}
     </HeaderMenu>
     
     {(process.env.INTERFACE_RESPONSIVE_MENU && props.ui.drawerMaximized) && <HeaderMenuSpacer />}

@@ -55,51 +55,52 @@ it('should have a Sign In menu item when not authenticated', () => {
     auth: {
       enabled: true,
       isAuthenticated: () => (false)
-    }
+    },
+    sections: [
+      {show: () => (true), authenticated: false, items: [
+        {label: 'Sign In', route: '/signin'},
+      ]},
+      {show: () => (false), authenticated: true, items: [
+        {label: 'Settings', route: '/settings'},
+        {label: 'Sign Out', route: '/signout'}
+      ]}
+    ]
   })
   
   const wrapper = shallow(<AuthMenu {...props} />)
-  
   const linkProps = wrapper.find(Link).props()
 
   expect(linkProps.to).toEqual('/signin')
   expect(linkProps.children).toEqual('Sign In')
 })
 
-it('should have a Logout menu item when authenticated', () => {
+it('should have a Logout and Settings menu items when authenticated', () => {
   const props = Object.assign({}, defaultProps, {
     auth: {
       enabled: true,
       isAuthenticated: () => (true),
       profile: {picture: '123'}
     },
-    logout: () => jest.fn()
+    sections: [
+      {show: () => (true), authenticated: false, items: [
+        {label: 'Sign In', route: '/signin'},
+      ]},
+      {show: () => (true), authenticated: true, items: [
+        {label: 'Settings', route: '/settings'},
+        {label: 'Sign Out', route: '/signout'}
+      ]}
+    ]
   })
   
   const wrapper = shallow(<AuthMenu {...props} />)
-  
-  const item = (
-    <MenuItem onClick={props.logout}>
-      Sign Out
-    </MenuItem>
-  )
+  const links = wrapper.find(Link)
+  expect(links.length).toEqual(2)
 
-  expect(wrapper).toContainReact(item)
-})
+  const linksFirst = links.at(0).props()
+  expect(linksFirst.to).toEqual('/settings')
+  expect(linksFirst.children).toEqual('Settings')
 
-it('should have a Settings Link when authenticated', () => {
-  const props = Object.assign({}, defaultProps, {
-    auth: {
-      enabled: true,
-      isAuthenticated: () => (true),
-      profile: {picture: '123'}
-    },
-    logout: () => jest.fn()
-  })
-  
-  const wrapper = shallow(<AuthMenu {...props} />)
-  const linkProps = wrapper.find(Link).props()
-  
-  expect(linkProps.to).toEqual('/settings')
-  expect(linkProps.children).toEqual('Settings')
+  const linksSecond = links.at(1).props()
+  expect(linksSecond.to).toEqual('/signout')
+  expect(linksSecond.children).toEqual('Sign Out')
 })

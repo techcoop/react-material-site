@@ -4,6 +4,7 @@ import cN from 'classnames'
 import { Link } from 'react-router-dom'
 import { SimpleMenu, MenuItem } from '@rmwc/menu'
 import IconButton from '../IconButton'
+import { getLabel } from '../../utils/content'
 
 import './AuthMenu.scss'
 
@@ -19,26 +20,24 @@ export const AuthMenu = props => (
         : <IconButton icon='account_circle' />
     }
   >
-    {!props.auth.isAuthenticated() && 
-      <div>
-        <MenuItem wrap>
-          <Link to='/signin'>
-            Sign In
-          </Link>
-        </MenuItem>
-      </div>}
 
-      {props.auth.isAuthenticated() && 
-      <div>
-        <MenuItem wrap>
-          <Link to='/settings'>
-            Settings
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={props.logout}>
-          Sign Out
-        </MenuItem>
-      </div>}
+    {props.sections && props.sections.map((section, index) => {
+      if (props.auth.isAuthenticated() !== section.authenticated || section.items.length === 0) {
+        return <div key={index} />
+      }
+      
+      return (
+        <div key={index}>
+          {section.items.map((item, index) => (
+            <MenuItem wrap key={index}>
+              <Link to={item.route}>
+                {getLabel(item.label, props.language)}
+              </Link>
+            </MenuItem>
+          ))}
+        </div>
+      )
+    })}
   </SimpleMenu>
 )
 
@@ -48,6 +47,7 @@ AuthMenu.defaultProps = {
 AuthMenu.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
+  sections: PropTypes.array,
   auth: PropTypes.object.isRequired,
   login: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired
