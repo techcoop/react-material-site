@@ -19,7 +19,6 @@ execSync(cmd, (err, stdout, stderr) => {
 
 // Copies .scss files to lib
 glob('src/**/*.scss', {}, function(err, files) {
-  console.log(files)
   if (err) {
     console.error('Could not write .scss files:')
     console.error(err)

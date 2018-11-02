@@ -27,7 +27,7 @@
     "rmwc",
     "framework"
   ],
-  "peerDependencies": {
+  "dependencies": {
     "@rmwc/button": "^3.0.4",
     "@rmwc/card": "^3.0.4",
     "@rmwc/checkbox": "^3.0.4",
