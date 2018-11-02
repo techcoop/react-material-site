@@ -12,9 +12,6 @@ switch (script) {
   case 'content':
   case 'prebuild':
   case 'stats': {
-    console.log('\n\n')
-    console.log(args.slice(scriptIndex + 1))
-    console.log('\n\n')
     const result = spawn.sync(
       'node',
       nodeArgs

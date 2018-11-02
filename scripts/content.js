@@ -41,9 +41,7 @@ for (var i = 0; i < process.argv.length; i++) {
     isAuto = true
   }
 }
-console.log('\n\n')
-console.log(isAuto)
-console.log('\n\n')
+
 if (process.env['REACT_APP_CONTENT_MODE'] !== 'auto' && isAuto) {
   exitAndCreateEmpty()
 }
