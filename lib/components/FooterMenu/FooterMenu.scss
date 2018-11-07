@@ -1,18 +1,13 @@
 .tc-footer {
+  color: #807F80;
 }
 
-.tc-footer__socials {
-  text-align: left;
+.tc-footer__menu-section {
+  padding: 8px 5px;
 }
 
-@media (max-width: 480px) {
-  .tc-footer__socials {
-    text-align: center;
-  }
-}
-
-.tc-footer__caption {
-  text-align: center;
+.tc-footer__menu-section div {
+  padding: 5px 0;
 }
 
 /* TODO make color configurable */
@@ -20,4 +15,28 @@
   padding: 10px;
   margin: 0 20px;
   border-top: 1px solid #e4e4e4;
+}
+
+.tc-footer__left {
+  text-align: left;
+}
+
+.tc-footer__middle {
+
+}
+
+.tc-footer__right {
+
+}
+
+.tc-footer__copyright {
+  margin-top: auto;
+  text-align: right;
+  padding: 3px;
+}
+
+@media (max-width: 480px) {
+  .tc-footer__left, .tc-footer__middle, .tc-footer__right, .tc-footer__copyright {
+    text-align: center;
+  }
 }
