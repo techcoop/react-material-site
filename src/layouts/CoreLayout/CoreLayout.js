@@ -26,12 +26,12 @@ const layoutStyle = {
 export const CoreLayout = (props) => (
   <div style={{height: 'inherit'}}>
     
-    <HeaderMenu name={process.env.SITE_NAME} drawerToggle={props.drawerToggle} drawerMaximized={props.ui.drawerMaximized} sections={props.menu['top']}>
+    <HeaderMenu name={process.env.SITE_NAME} drawerToggle={props.drawerToggle} drawerMaximized={props.ui.drawerMaximized} sections={props.menu['header']}>
       {props.ui.language && props.ui.languages &&
         <LanguageMenu language={props.ui.language} languages={props.ui.languages} onClick={props.languageUpdate} />}
 
       {props.auth.enabled &&   
-        <AuthMenu auth={props.auth} language={props.ui.language} sections={props.menu['auth']} login={props.login} logout={props.logout} />}
+        <AuthMenu language={props.ui.language} auth={props.auth} sections={props.menu['auth']} login={props.login} logout={props.logout} />}
     </HeaderMenu>
     
     {(process.env.INTERFACE_RESPONSIVE_MENU && props.ui.drawerMaximized) && <HeaderMenuSpacer />}
@@ -78,8 +78,15 @@ export const CoreLayout = (props) => (
         />}
     </div>
     
-    <FooterMenu name={process.env.SITE_DISPLAY} socials={process.env.SOCIALS} />
-    
+    <FooterMenu 
+      name={process.env.SITE_DISPLAY}
+      socials={process.env.SOCIALS} 
+      language={props.ui.language}
+      leftSections={props.menu['footer-left']}
+      middleSections={props.menu['footer-middle']}
+      rightSections={props.menu['footer-right']}
+    />
+
     {process.env.COOKIE_NOTICE_ENABLED && 
       <CookieNotice 
         title={props.content.local.get(['cookie notice', 'title', props.ui.language])}
