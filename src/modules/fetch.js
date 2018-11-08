@@ -1,23 +1,30 @@
-import { replace } from 'react-router-redux'
-import { globalMessage } from './ui'
-import { getFormConfig, getFormData } from '../utils/form' 
+//import { replace } from 'react-router-redux'
+//import { globalMessage } from './ui'
+//import { getFormConfig, getFormData } from '../utils/form' 
 import { Xhr } from '../utils/xhr'
 
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const FORM_UPDATE = 'FORM_UPDATE'
+export const FETCH_UPDATE = 'FETCH_UPDATE'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export const formUpdate = (params) => {
+export const fetchUpdate = (params) => {
   return {
-    type    : FORM_UPDATE,
+    type    : FETCH_UPDATE,
     payload : params
   }
 }
 
+export const fetch = (id, url) => {
+  return (dispatch, getState) => {
+    
+  }
+}
+
+/*
 export const formSubmit = (event) => {
   return (dispatch, getState) => {
     event.preventDefault()
@@ -31,12 +38,12 @@ export const formSubmit = (event) => {
     // TODO determine cases where getting to this function is actually possible in submit handler
     // TODO decide what should happen in browser does not support checkValidity
     if (!form.checkValidity && !form.checkValidity()) {
-      console.error('actions/form :: formSubmit your form is not valid')
+      console.error('modules/form :: formSubmit your form is not valid')
       return
     }
 
     if (!formId) {
-      console.error('actions/form :: formSubmit requires a form id to function, check your <Form /> component')
+      console.error('modules/form :: formSubmit requires a form id to function, check your <Form /> component')
       return
     }
 
@@ -53,12 +60,12 @@ export const formSubmit = (event) => {
     const state = getState()
     const config = Object.assign(
       {method: 'POST'},
-      getFormConfig(formId, state.ui.language, state.content.forms),
+      getFormConfig(formId, state.ui.language),
       formConfig,
     )
     
     if (!config.action) {
-      console.error('actions/form :: formSubmit requires an action to perform')
+      console.error('modules/form :: formSubmit requires an action to perform')
       return
     }
 
@@ -69,7 +76,7 @@ export const formSubmit = (event) => {
       data = getFormData(data)
       config.type = 'form'
     }
-    
+
     if (config.type === 'json') {
       data = getFormData(data)
     }
@@ -93,7 +100,7 @@ export const formSubmit = (event) => {
       actions = config.success
     }, (error) => {
       // Catch and output error to console
-      console.error('actions/form :: formSubmit had an error while submitting')
+      console.error('modules/form :: formSubmit had an error while submitting')
       console.error(error)
 
       // If no error config, reset loading bool but keep form state
@@ -152,40 +159,10 @@ export const formSubmit = (event) => {
     })
   }
 }
-
-export const formChange = (event) => {
-  return (dispatch, getState) => {
-    const state = getState().form
-    const formId = event.target.getAttribute('data-form-id')
-    if (!formId) {
-      console.error('actions/form :: formChange requires a form id to function, check your <Form /> component')
-      return
-    }
-
-    let formState = state[formId]
-    if (!formState) {
-      formState = newFormState()
-    }
-
-    if (event.type === 'MDCSlider:change' && event.detail.props.name) {
-      formState.data[event.detail.props.name] = event.detail.props.value
-    } else if (event.target.type === 'checkbox') {
-      if (event.target.checked) {
-        formState.data[event.target.name] = event.target.value
-      } else {
-        formState.data[event.target.name] = undefined
-      }
-    } else {
-      formState.data[event.target.name] = event.target.value
-    }
-
-    dispatch(formUpdate({[formId]: formState}))
-  }
-}
+*/
 
 export const actions = {
-  formSubmit,
-  formChange
+  fetch
 }
 
 // ------------------------------------

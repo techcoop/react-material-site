@@ -4,8 +4,8 @@ import { ConnectedRouter } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import enquire from 'enquire.js'
 
-import { drawerUpdate } from '../actions/ui'
-import { fetchProfile } from '../actions/auth'
+import { drawerUpdate } from '../modules/ui'
+import { fetchProfile } from '../modules/auth'
 
 import './AppContainer.scss'
 

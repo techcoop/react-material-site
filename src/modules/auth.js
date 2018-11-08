@@ -21,7 +21,7 @@ export function authChange (params) {
 export const authEnabled = (dispatch, getState) => {
   const state = getState()
   if (!state.auth.enabled) {
-    console.error('actions/auth :: Auth not configured, check your .env file and ensure all AUTH variables are configured correctly.')
+    console.error('modules/auth :: Auth not configured, check your .env file and ensure all AUTH variables are configured correctly.')
     dispatch(interfaceMessage('AUTH_NOT_ENABLED'))
   }
 
@@ -37,7 +37,7 @@ export const fetchProfile = () => {
 
     const accessToken = localStorage.getItem('access_token')
     if (!accessToken) {
-      console.error('actions/auth :: A profile fetch was attempted, but there was no access_token in localStorage.')
+      console.error('modules/auth :: A profile fetch was attempted, but there was no access_token in localStorage.')
       return dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
     }
     
@@ -45,7 +45,7 @@ export const fetchProfile = () => {
     auth.client.userInfo(accessToken, function(err, profile) {
       if (err) {
         clearSession()
-        console.error('actions/auth :: IDP fetch profile failed with "' + err.errorDescription + '"')
+        console.error('modules/auth :: IDP fetch profile failed with "' + err.errorDescription + '"')
         return dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
       }
       
@@ -93,7 +93,7 @@ export const callback = () => {
         }
         dispatch(authChange({profile: authResult.idTokenPayload}))
       } else if (err) {
-        console.error('actions/auth :: IDP callback failed with "' + err.errorDescription + '"')
+        console.error('modules/auth :: IDP callback failed with "' + err.errorDescription + '"')
         dispatch(replace('/'))
         return dispatch(interfaceMessage('AUTH_LOGIN_FAILED'))
       }
