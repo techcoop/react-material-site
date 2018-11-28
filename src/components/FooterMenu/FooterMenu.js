@@ -75,7 +75,7 @@ FooterMenu.defaultProps = {
   name: (window && window.location ? window.location.hostname : ''),
   year: (new Date()).getFullYear(),
   socialsLocation: 'left',
-  socialsAlignment: 'bottom'
+  socialsAlignment: 'top'
 }
 
 FooterMenu.propTypes = {
