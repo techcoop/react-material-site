@@ -86,14 +86,14 @@ export const CoreLayout = (props) => (
       middleSections={props.menu['footer-middle']}
       rightSections={props.menu['footer-right']}
     />
-
+    
     {process.env.COOKIE_NOTICE_ENABLED && 
       <CookieNotice 
         title={props.content.local.get(['cookie notice', 'title', props.ui.language])}
         message={props.content.local.get(['cookie notice', 'message', props.ui.language])}
         acceptText={props.content.local.get(['cookie notice', 'accept', props.ui.language])}
         policyText={props.content.local.get(['cookie notice', 'policy', props.ui.language])}
-        policyUrL={props.content.local.get(['cookie notice', 'url', props.ui.language])}
+        policyUrL={process.env.COOKIE_NOTICE_POLICY}
       />}
   </div>
 )
