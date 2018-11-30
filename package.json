@@ -1,0 +1,93 @@
+{
+  "name": "react-material-site",
+  "version": "0.0.0",
+  "description": "A VERY opinionated website framework built with react and material design.",
+  "homepage": "https://techcoop.github.io/react-material-site",
+  "main": "src/index.js",
+  "module": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "author": "colingagnon",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techcoop/react-material-site.git"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/",
+    "src/"
+  ],
+  "keywords": [
+    "techcoop",
+    "react",
+    "material design",
+    "material design components web",
+    "rmwc",
+    "framework"
+  ],
+  "dependencies": {
+    "@rmwc/button": "^3.0.4",
+    "@rmwc/card": "^3.0.4",
+    "@rmwc/checkbox": "^3.0.4",
+    "@rmwc/data-table": "^3.0.4",
+    "@rmwc/drawer": "^3.0.4",
+    "@rmwc/elevation": "^3.0.4",
+    "@rmwc/formfield": "^3.0.4",
+    "@rmwc/grid": "^3.0.4",
+    "@rmwc/grid-list": "^3.0.4",
+    "@rmwc/icon": "^3.0.4",
+    "@rmwc/icon-button": "^3.0.3",
+    "@rmwc/linear-progress": "^3.0.4",
+    "@rmwc/list": "^3.0.4",
+    "@rmwc/menu": "^3.0.4",
+    "@rmwc/radio": "^3.0.4",
+    "@rmwc/select": "^3.0.4",
+    "@rmwc/slider": "^3.0.4",
+    "@rmwc/snackbar": "^3.0.4",
+    "@rmwc/switch": "^3.0.4",
+    "@rmwc/tabs": "^3.0.4",
+    "@rmwc/textfield": "^3.0.4",
+    "@rmwc/top-app-bar": "^3.0.4",
+    "@rmwc/typography": "^3.0.4",
+    "auth0-js": "^9.8.0",
+    "chokidar": "^2.0.3",
+    "cross-spawn": "^6.0.5",
+    "enquire.js": "^2.1.6",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "form-google-sheets": "^0.1.1",
+    "icons-ceivable": "^0.1.0",
+    "is-reachable": "^2.4.0",
+    "jest-enzyme": "^7.0.0",
+    "json-google-docs": "^0.2.0",
+    "node-sass": "^4.9.3",
+    "react": "^16.2.0",
+    "react-app-rewired": "^1.6.2",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.8",
+    "react-scripts": "^2.0.5",
+    "react-test-renderer": "^16.1.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2",
+    "superagent": "^4.0.0-beta.5",
+    "webpack-bundle-analyzer": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2"
+  },
+  "scripts": {
+    "test": "react-app-rewired test --env=jsdom",
+    "clean": "rimraf lib",
+    "compile": "babel src --out-dir lib",
+    "build": "yarn clean && node build.js"
+  },
+  "bin": {
+    "react-material-site": "./bin/index.js"
+  }
+}
