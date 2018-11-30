@@ -1,6 +1,6 @@
 {
   "name": "react-material-site",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A VERY opinionated website framework built with react and material design.",
   "homepage": "https://techcoop.github.io/react-material-site",
   "main": "src/index.js",
@@ -79,13 +79,15 @@
     "webpack-bundle-analyzer": "^3.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2"
+    "@babel/cli": "^7.1.2",
+    "standard-version": "^4.0.0"
   },
   "scripts": {
     "test": "react-app-rewired test --env=jsdom",
     "clean": "rimraf lib",
     "compile": "babel src --out-dir lib",
-    "build": "yarn clean && node build.js"
+    "build": "yarn clean && node build.js",
+    "release": "yarn build && standard-version"
   },
   "bin": {
     "react-material-site": "./bin/index.js"
