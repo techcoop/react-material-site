@@ -3,13 +3,14 @@ var spawn = require('cross-spawn');
 const args = process.argv.slice(2);
 
 const scriptIndex = args.findIndex(
-  x => x === 'content' || x === 'prebuild' || x === 'stats'
+  x => x === 'content' || x === 'create' || x === 'prebuild' || x === 'stats'
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 switch (script) {
   case 'content':
+  case 'create':
   case 'prebuild':
   case 'stats': {
     const result = spawn.sync(
