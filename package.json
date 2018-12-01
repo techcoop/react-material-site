@@ -16,7 +16,9 @@
   "files": [
     "LICENSE",
     "README.md",
+    "bin/",
     "lib/",
+    "scripts/",
     "src/"
   ],
   "keywords": [
