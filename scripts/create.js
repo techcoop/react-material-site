@@ -1,5 +1,16 @@
 const { execSync } = require('child_process')
 
+// Function for finishing up a sync
+const finishSync = (err, stdout, stderr) => {
+  if (err) {
+    console.error(err)
+  }
+
+  if (stderr) {
+    console.log(stderr)
+  }
+}
+
 // Make sure we have a directory
 if (!process.argv[2]) {
   console.error(`You must pass a destination folder to the create script.`)
@@ -9,42 +20,25 @@ if (!process.argv[2]) {
 const path = process.argv[2]
 
 // Clone boilerplate repo
-console.log(`Creating copy of boilerplate:\n`)
-const gitCmd = `git clone git@github.com:techcoop/react-material-site-boilerplate.git ${path}`
-execSync(gitCmd, (err, stdout, stderr) => {
-  if (err) {
-    console.error(err)
-  }
+console.log(`\n`)
+const gitCmd = `git clone https://github.com/techcoop/react-material-site-boilerplate.git ${path}`
+execSync(gitCmd, finishSync)
 
-  if (stdout) {
-    console.log(stdout)
-  }
+// Remove existing 
+execSync(`cd ${path} && rm -rf .git`, finishSync)
 
-  if (stderr) {
-    console.log(stderr)
-  }
-})
+// Create new repo
+execSync(`cd ${path} && git init && git add . && git commit -m "Initial commit from react-material-site"`, finishSync)
 
-console.log(`\n\nInstalling boilerplate:\n`)
-const installCmd = `cd ${path} && yarn install`
-execSync(installCmd, (err, stdout, stderr) => {
-  if (err) {
-    console.error(err)
-  }
+// Run install
+console.log(`\nInstalling boilerplate...`)
+execSync(`cd ${path} && npm install`, finishSync)
 
-  if (stdout) {
-    console.log(stdout)
-  }
-
-  if (stderr) {
-    console.log(stderr)
-  }
-})
-
+// Output something useful
 console.log(`\n\n`)
-console.log(`Done... start your new site:\n`)
+console.log(`Done! Start your new site:\n\n`)
 console.log(`cd ${path}`)
 console.log(`yarn start`)
-console.log(`or`)
+console.log(`\nor\n`)
 console.log(`npm start`)
 console.log(`\n\n`)
