@@ -30,7 +30,7 @@ export const authEnabled = (dispatch, getState) => {
 
 // Fetches profile information from IDP with access_token
 export const fetchProfile = () => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     if (!authEnabled(dispatch, getState)) {
       return
     }
