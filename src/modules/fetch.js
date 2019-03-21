@@ -1,4 +1,4 @@
-//import { replace } from 'react-router-redux'
+//import { replace } from 'connected-react-router'
 //import { globalMessage } from './ui'
 //import { getFormConfig, getFormData } from '../utils/form' 
 import { Xhr } from '../utils/xhr'

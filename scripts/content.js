@@ -28,9 +28,8 @@ envFiles.forEach(file => {
   }
 })
 
-// If there is no URL, stop script and output an error message
+// If there is no URL create empty
 if (!process.env['REACT_APP_CONTENT_URL'] && process.env['REACT_APP_CONTENT_MODE']) {
-  console.log('\n\nCould not find "REACT_APP_CONTENT_URL"\n\n')
   exitAndCreateEmpty()
 }
 
