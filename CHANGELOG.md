@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/techcoop/react-material-site/compare/v0.4.1...v0.4.2) (2019-03-23)
+
+
+### Bug Fixes
+
+* Changes checkbox behavior to return true instead of value ([94edf98](https://github.com/techcoop/react-material-site/commit/94edf98))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/techcoop/react-material-site/compare/v0.4.0...v0.4.1) (2019-03-23)
 
