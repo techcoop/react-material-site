@@ -142,10 +142,6 @@ describe('form :: getFormConfig', () => {
     expect(() => getFormConfig('form', undefined, {}).toThrow(RangeError))
   })
 
-  it('should throw a RangeError if the form contains no action', () => {
-    expect(() => getFormConfig('form', undefined, {form: {}}).toThrow(RangeError))
-  })
-
   it('should return a form config containing an action and default type of form', () => {
     const action = 'http://test'
     const config = getFormConfig('form', undefined, {form: {action: action}})

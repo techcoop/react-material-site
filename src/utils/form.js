@@ -34,10 +34,6 @@ export const getFormConfig = (id, language, forms = {}) => {
     throw new RangeError('Could not find a form for id: ' + id)
   }
   
-  if (!forms[id].action) {
-    throw new RangeError('Could not find an action for the form: ' + id)
-  }
-
   let form = {}
   if (forms[id].success) {
     form.success = Object.assign({}, forms[id].success, getFormMessages(forms[id].success, language))
