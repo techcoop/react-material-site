@@ -6,9 +6,13 @@ import { getLabel } from './content'
 export const getFormData = (form) => [].reduce.call(form.elements, (data, element) => {
   // Check if element has a name and value
   if ((element.name && element.value) && (!['checkbox', 'radio'].includes(element.type) || element.checked)) {
+    // If element is a checkbox
     if (element.type === 'checkbox') {
-      // If element is a checkbox
-      data[element.name] = (element.value || '')
+      if (element.checked) {
+        data[element.name] = true;  
+      } else {
+        data[element.name] = undefined;
+      }
       // TODO re-examine, returns an array
       //data[element.name] = (data[element.name] || []).concat(element.value)
     } else if (element.options && element.multiple) {

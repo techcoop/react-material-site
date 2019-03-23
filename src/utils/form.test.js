@@ -23,7 +23,7 @@ describe('form :: getFormData', () => {
     form.appendChild(input)
 
     const data = getFormData(form)
-    expect(data[input.name]).toEqual(input.value)
+    expect(data[input.name]).toEqual(true)
   })
 
   it('should return undefined for a checkbox when unchecked', () => {
