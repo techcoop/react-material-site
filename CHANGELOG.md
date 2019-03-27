@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.3"></a>
+## [0.4.3](https://github.com/techcoop/react-material-site/compare/v0.4.2...v0.4.3) (2019-03-27)
+
+
+### Bug Fixes
+
+* Adds fab component ([e26bde4](https://github.com/techcoop/react-material-site/commit/e26bde4))
+
+
+
 <a name="0.4.2"></a>
 ## [0.4.2](https://github.com/techcoop/react-material-site/compare/v0.4.1...v0.4.2) (2019-03-23)
 
