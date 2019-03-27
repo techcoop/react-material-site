@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.5"></a>
+## [0.4.5](https://github.com/techcoop/react-material-site/compare/v0.4.4...v0.4.5) (2019-03-27)
+
+
+### Bug Fixes
+
+* Updates dialog to 5.2.0 ([1575f8a](https://github.com/techcoop/react-material-site/commit/1575f8a))
+
+
+
 <a name="0.4.4"></a>
 ## [0.4.4](https://github.com/techcoop/react-material-site/compare/v0.4.3...v0.4.4) (2019-03-27)
 
