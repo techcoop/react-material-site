@@ -36,6 +36,7 @@
     "@rmwc/data-table": "^3.0.4",
     "@rmwc/drawer": "^3.0.4",
     "@rmwc/elevation": "^3.0.4",
+    "@rmwc/fab": "^3.0.4",
     "@rmwc/formfield": "^3.0.4",
     "@rmwc/grid": "^3.0.4",
     "@rmwc/grid-list": "^3.0.4",
