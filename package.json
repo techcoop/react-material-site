@@ -34,7 +34,7 @@
     "@rmwc/card": "^3.0.4",
     "@rmwc/checkbox": "^3.0.4",
     "@rmwc/data-table": "^3.0.4",
-    "@rmwc/dialog": "^5.2.0",
+    "@rmwc/dialog": "^3.0.4",
     "@rmwc/drawer": "^3.0.4",
     "@rmwc/elevation": "^3.0.4",
     "@rmwc/fab": "^3.0.4",
