@@ -1,0 +1,11 @@
+.tc-pager {
+  position: relative;
+}
+
+.tc-pager__counts {
+  position: absolute;
+  top: 16px;
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}

@@ -63,7 +63,7 @@ it('should render sections as additional icon buttons with labels and no route',
     ]}
   ]
 
-  const element = (<IconButton icon='home' label='Test' wrap />)
+  const element = (<IconButton icon='home' label='Test' />)
 
   const wrapper = shallow(<HeaderMenu sections={sections} />)
   expect(wrapper).toContainReact(element)
@@ -76,7 +76,7 @@ it('should render sections as additional icon buttons with labels and with a rou
     ]}
   ]
 
-  const element = (<IconButton icon='home' to='/test' label='Test' wrap />)
+  const element = (<IconButton icon='home' to='/test' label='Test' />)
 
   const wrapper = shallow(<HeaderMenu sections={sections} />)
   expect(wrapper).toContainReact(element)
@@ -92,8 +92,8 @@ it('should render sections when shown but not render when not shown', () => {
     ]}
   ]
 
-  const element = (<IconButton icon='home' to='/test' label='Test' wrap />)
-  const hideElement = (<IconButton icon='test' to='/hide-test' label='HideTest' wrap />)
+  const element = (<IconButton icon='home' to='/test' label='Test' />)
+  const hideElement = (<IconButton icon='test' to='/hide-test' label='HideTest' />)
 
   const wrapper = shallow(<HeaderMenu sections={sections} />)
   expect(wrapper.contains(hideElement)).toEqual(false)

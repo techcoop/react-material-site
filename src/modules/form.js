@@ -19,7 +19,7 @@ export const formUpdate = (params) => {
 }
 
 export const formSubmit = (event) => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     event.preventDefault()
 
     const form = event.target
@@ -39,7 +39,7 @@ export const formSubmit = (event) => {
       console.error('modules/form :: formSubmit requires a form id to function, check your <Form /> component')
       return
     }
-
+    
     // TODO make success and error actions available with form props
     const formConfig = {}
     if (action) {
@@ -79,7 +79,8 @@ export const formSubmit = (event) => {
       formState = state.form[formId].data
     }
 
-    dispatch(formUpdate({[formId]: {loading: true, data: formState}}))
+    dispatch(formUpdate({[formId]: {loading: true, data: data}}))
+
     const promise = Xhr(config.action, data, {type: config.type, method: config.method})
     let actions, result
     // TODO need way to handle custom errors that return 200
@@ -161,7 +162,7 @@ export const formChange = (event) => {
       console.error('modules/form :: formChange requires a form id to function, check your <Form /> component')
       return
     }
-
+    
     let formState = state[formId]
     if (!formState) {
       formState = newFormState()
@@ -178,7 +179,7 @@ export const formChange = (event) => {
     } else {
       formState.data[event.target.name] = event.target.value
     }
-
+    
     dispatch(formUpdate({[formId]: formState}))
   }
 }

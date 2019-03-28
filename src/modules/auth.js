@@ -7,6 +7,9 @@ import auth from '../utils/auth'
 // ------------------------------------
 export const AUTH_CHANGE = 'AUTH_CHANGE'
 
+const AUTH_HOME_ROUTE = process.env.AUTH_HOME_ROUTE ? process.env.AUTH_HOME_ROUTE : '/'
+const PUBLIC_HOME_ROUTE = process.env.PUBLIC_HOME_ROUTE ? process.env.PUBLIC_HOME_ROUTE : '/'
+
 // ------------------------------------
 // Actions
 // ------------------------------------
@@ -34,11 +37,11 @@ export const fetchProfile = () => {
     if (!authEnabled(dispatch, getState)) {
       return
     }
-
+    
     const accessToken = localStorage.getItem('access_token')
     if (!accessToken) {
-      console.error('modules/auth :: A profile fetch was attempted, but there was no access_token in localStorage.')
-      return dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
+      dispatch(replace(PUBLIC_HOME_ROUTE))
+      return
     }
     
     // Fetch user profile from IDP
@@ -46,6 +49,7 @@ export const fetchProfile = () => {
       if (err) {
         clearSession()
         console.error('modules/auth :: IDP fetch profile failed with "' + err.errorDescription + '"')
+        dispatch(replace(PUBLIC_HOME_ROUTE))
         return dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
       }
       
@@ -86,15 +90,11 @@ export const callback = () => {
         localStorage.setItem('id_token', authResult.idToken)
         localStorage.setItem('expires_at', expiresAt)
         localStorage.setItem('picture', authResult.idTokenPayload.picture)
-        if (process.env.AUTH_HOME_ROUTE) {
-          dispatch(replace(process.env.AUTH_HOME_ROUTE))
-        } else {
-          dispatch(replace('/'))
-        }
+        dispatch(replace(AUTH_HOME_ROUTE))
         dispatch(authChange({profile: authResult.idTokenPayload}))
       } else if (err) {
         console.error('modules/auth :: IDP callback failed with "' + err.errorDescription + '"')
-        dispatch(replace('/'))
+        dispatch(replace(PUBLIC_HOME_ROUTE))
         return dispatch(interfaceMessage('AUTH_LOGIN_FAILED'))
       }
     })
@@ -105,7 +105,7 @@ export const callback = () => {
 export const logout = () => {
   return (dispatch, getState) => {
     clearSession()
-    dispatch(replace('/'))
+    dispatch(replace(PUBLIC_HOME_ROUTE))
     dispatch(authChange({profile: {}, settings: {}}))
   }
 }

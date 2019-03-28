@@ -1,26 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-//import cN from 'classnames'
+import cN from 'classnames'
 import { IconButton as MIconButton } from '@rmwc/icon-button'
 import { Link } from 'react-router-dom'
 
 import './IconButton.scss'
+
 // TODO add className and prop passing
 export const IconButton = props => (
-  <MIconButton {...props}>
-    {props.to 
-      ? <Link to={props.to} />
-      : null}
-  </MIconButton>
+  props.to 
+    ? <Link to={props.to} className={cN('tc-icon-button', props.className)} style={props.style}>
+        <MIconButton {...props} />
+      </Link>
+    : <MIconButton {...props} />
 )
 
 IconButton.defaultProps = {
-  wrap: true,
-  label: ''
 }
 
 IconButton.propTypes = {
-  wrap: PropTypes.bool,
+  style: PropTypes.object,
+  className: PropTypes.string,
   to: PropTypes.string,
   label: PropTypes.string,
   onClick: PropTypes.func,

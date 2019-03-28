@@ -11,9 +11,11 @@ import { Select } from '@rmwc/select'
 import { Slider } from '@rmwc/slider'
 import { Button } from '@rmwc/button'
 
-import Message from '../Message'
+//import Message from '../Message'
+import Message from 'react-material-site/lib/components/Message'
 import { LinearProgress } from '@rmwc/linear-progress'
-import { getLabel } from '../../utils/content'
+//import { getLabel } from '../../utils/content'
+import { getLabel } from 'react-material-site/lib/utils/content'
 
 import './Form.scss'
 
@@ -42,7 +44,7 @@ import './Form.scss'
 // TODO migrate to local component Button
 
 // TODO support for field icons
-
+// TODO add test coverage for field explode
 export const Form = props => (
   <form 
     data-form-id={props.id}
@@ -53,27 +55,30 @@ export const Form = props => (
     onSubmit={props.onSubmit ? props.onSubmit : (e) => {e.preventDefault()}}
     className={cN('tc-form', props.className)}
     style={props.style}>
-
+    
     {props.message && props.message.location === 'top' && 
       <Message {...props.message} />}
       
     {!props.hide && Object.keys(props.fields).map((name) => {
-      const type = props.fields[name].type
-      const helper = getLabel(props.fields[name].helper, props.language)
-      const label = getLabel(props.fields[name].label, props.language)
-      const value = props.data[name] ? props.data[name] : ''
-      const field = Object.assign({}, props.fields[name], {type: undefined, helper: undefined, label: label})
+      const { type, parseValue, helper, label, ...field } = props.fields[name]
+
+      const helperText = getLabel(helper, props.language)
+      const labelText = getLabel(label, props.language)
+      const value = parseValue ? parseValue(props.data[name] ? props.data[name] : '') : props.data[name] ? props.data[name] : ''
+
       return (
         <FormField key={name} style={props.fieldStyle} className={props.fieldClassName}>
           {(type === 'radio' || type === 'slider') &&
-            <label>{label}</label>}
+            <label>{labelText}</label>}
 
           {type === 'text' && 
             <TextField 
               data-form-id={props.id}
+              data-explode={field.explode}
               name={name}
               value={value}
               onChange={props.onChange}
+              label={labelText}
               {...field}
               disabled={props.loading}
               onInvalid={(e) => {
@@ -91,6 +96,7 @@ export const Form = props => (
               value={value}
               onChange={props.onChange}
               fullwidth 
+              label={labelText}
               {...field}
               disabled={props.loading}
               onInvalid={(e) => {
@@ -106,6 +112,7 @@ export const Form = props => (
               name={name}
               checked={value}
               onChange={props.onChange}
+              label={labelText}
               {...field}
               disabled={props.loading}
             />}
@@ -116,6 +123,7 @@ export const Form = props => (
               name={name}
               checked={value}
               onChange={props.onChange}
+              label={labelText}
               {...field}
               disabled={props.loading}
             />}
@@ -141,6 +149,7 @@ export const Form = props => (
               name={name}
               onChange={props.onChange}
               value={value}
+              label={labelText}
               {...field} 
               disabled={props.loading}
             />}
@@ -165,8 +174,8 @@ export const Form = props => (
               disabled={props.loading}
             />}
         
-        {helper &&
-          <TextFieldHelperText persistent validationMsg>{helper}</TextFieldHelperText>}
+        {helperText &&
+          <TextFieldHelperText persistent validationMsg>{helperText}</TextFieldHelperText>}
         
         {(type === 'hidden' || type === 'text' || type === 'file' || type === 'textarea' || type === 'select') &&
           <label style={{display: 'none'}} />}

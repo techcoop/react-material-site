@@ -26,7 +26,7 @@ describe('form :: getFormData', () => {
     expect(data[input.name]).toEqual(true)
   })
 
-  it('should return undefined for a checkbox when unchecked', () => {
+  it('should return false for a checkbox when unchecked', () => {
     let form = document.createElement('form')
     let input = document.createElement('input')
     input.type = 'checkbox'
@@ -36,7 +36,7 @@ describe('form :: getFormData', () => {
     form.appendChild(input)
 
     const data = getFormData(form)
-    expect(data[input.name]).toEqual(undefined)
+    expect(data[input.name]).toEqual(false)
   })
 
   it('should return the selected item for a radio', () => {

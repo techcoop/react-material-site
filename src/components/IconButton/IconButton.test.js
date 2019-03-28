@@ -12,7 +12,6 @@ it('should pass props to button and wrap by default', () => {
   const wrapper = shallow(<IconButton style={testStyle} icon='home' />)
   expect(wrapper.props().style).toEqual(testStyle)
   expect(wrapper.props().icon).toEqual('home')
-  expect(wrapper.props().wrap).toEqual(true)
 })
 
 it('should create a link when passed with to', () => {

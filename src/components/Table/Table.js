@@ -10,6 +10,7 @@ import {
   DataTableRow,
   DataTableCell
 } from '@rmwc/data-table'
+import { TextField } from '@rmwc/textfield'
 
 // TODO fix imports for .css files and move to scss instead
 import '@rmwc/data-table/data-table.css'
@@ -17,22 +18,9 @@ import '@rmwc/data-table/data-table.css'
 import './Table.scss'
 
 // TODO implement handling for numbers
-// TODO implement handling for sorting
 // TODO improve support for error cases
-/*
-<DataTableHeadCell
-  alignEnd
-  sort={this.state.sortDir || null}
-  onSortChange={sortDir => {
-    this.setState({sortDir})
-    console.log(sortDir)
-  }}
->
-  Quantity (Click Me)
-</DataTableHeadCell>
-*/
-// TODO implement the rest of the functionality from data tables
-// https://jamesmfriedman.github.io/rmwc/data-tables
+// TODO tests for sorting
+// TODO tests for filtering
 export const Table = props => (
   <DataTable style={props.style} className={cN('tc-table', props.className, {'tc-table_wrap': props.wrap})}>
     <DataTableContent>
@@ -42,24 +30,49 @@ export const Table = props => (
             <DataTableHeadCell 
               key={index}
               style={props.fields[field].style}
+              sort={props.sortChange ? props.sortDir && props.sortField === field ? parseInt(props.sortDir) : null : undefined}
+              onSortChange={props.sortChange ? (sortDir) => {
+                props.sortChange(sortDir, field)
+              } : undefined}
               {...props.fields[field].options}
-              //className={cN({'mdl-data-table__cell--non-numeric': props.fields[field].type !== 'number'} )}
             >
               {props.fields[field].label}
             </DataTableHeadCell>
           ))}
         </DataTableRow>
+
+        {props.filterChange && 
+          <DataTableRow>
+            {props.fields && Object.keys(props.fields).map((field, index) => (
+              <DataTableCell key={index} style={{padding: '4px'}}>
+                {props.fields[field].filter && 
+                  <TextField
+                    name={field}
+                    value={props.search && props.search.get(field) 
+                      ? props.search.get(field).replace(/\*/g, '') 
+                      : ''}
+                    onChange={(event) => {
+                      props.filterChange(event.target.value, field)
+                    }}
+                    style={{width: '100%' }}
+                  />}
+              </DataTableCell>
+            ))}
+          </DataTableRow>}
       </DataTableHead>
       <DataTableBody>
         {props.data && props.data.map((row, index) => (
-          <DataTableRow key={index}>
-            {Object.keys(row).map((field, index) => (
+          <DataTableRow 
+            key={index}
+            onClick={props.rowClick ? () => props.rowClick(row) : undefined}
+            className={cN({'tc-table__row_clickable': props.rowClick})}
+          >
+            {Object.keys(props.fields).map((field, index) => (
               <DataTableCell 
                 key={index}
                 style={props.fields[field].rowStyle}
-                //className={cN({'mdl-data-table__cell--non-numeric': props.fields[field].type !== 'number'} )}
               >
-                {row[field]}
+                {props.fields[field].render ? props.fields[field].render(row[field]) : row[field]}
               </DataTableCell>
             ))}
           </DataTableRow>
@@ -78,7 +91,15 @@ Table.propTypes = {
   data: PropTypes.array,
   style: PropTypes.object,
   className: PropTypes.string,
-  wrap: PropTypes.bool
+  wrap: PropTypes.bool,
+  
+  filterChange: PropTypes.func,
+  search: PropTypes.object,
+  rowClick: PropTypes.func,
+
+  sortField: PropTypes.string,
+  sortDirection: PropTypes.number,
+  sortChange: PropTypes.func
 }
 
 export default Table

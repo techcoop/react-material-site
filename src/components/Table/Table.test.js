@@ -58,10 +58,10 @@ it('should render rows with field data and rowStyle', () => {
   ]
 
   const wrapper = shallow(<Table fields={fields} data={data} />)
-
+  
   const children = (
     <DataTableBody>
-      <DataTableRow key={0}>
+      <DataTableRow key={0} className=''>
         <DataTableCell key={0} style={{width: '1px'}}>
           row1 field1
         </DataTableCell>
@@ -69,7 +69,7 @@ it('should render rows with field data and rowStyle', () => {
           row1 field2
         </DataTableCell>
       </DataTableRow>
-      <DataTableRow key={1}>
+      <DataTableRow key={1} className=''>
         <DataTableCell key={0} style={{width: '1px'}}>
           row2 field1
         </DataTableCell>
@@ -81,4 +81,41 @@ it('should render rows with field data and rowStyle', () => {
   )
 
   expect(wrapper).toContainReact(children)
+})
+
+it('should allow a render function to format data', () => {
+  const fields = {
+    field1: {label: 'field1', render: (value) => `${value} render`}
+  }
+
+  const data = [
+    {field1: 'formatted'}
+  ]
+
+  const wrapper = shallow(<Table fields={fields} data={data} />)
+
+  const children = (
+    <DataTableCell key={0}>
+      formatted render
+    </DataTableCell>
+  )
+
+  expect(wrapper).toContainReact(children)
+})
+
+it('should allow clickable row when passed a rowClick function', () => {
+  const fields = {
+    field1: {label: 'field1'}
+  }
+
+  const data = [
+    {field1: 'clickable'}
+  ]
+
+  const onClick = jest.fn()
+
+  const wrapper = shallow(<Table fields={fields} data={data} rowClick={onClick} />)
+  const row = wrapper.find(DataTableRow).at(1).props()
+  expect(row.className).toEqual('tc-table__row_clickable')
+  expect(typeof row.onClick).toEqual('function')
 })

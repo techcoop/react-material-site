@@ -1,0 +1,15 @@
+.tc-center {
+  display: table;
+  width: inherit;
+}
+
+.tc-center__cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tc-center__element {
+  height: 100px;
+  width: 200px;
+  margin: auto;
+}
