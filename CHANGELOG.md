@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/techcoop/react-material-site/compare/v0.5.0...v0.5.1) (2019-03-28)
+
+
+### Bug Fixes
+
+* Adds fix for border radius on auth menu and adds import for textfield in table component ([3144824](https://github.com/techcoop/react-material-site/commit/3144824))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/techcoop/react-material-site/compare/v0.4.6...v0.5.0) (2019-03-28)
 
