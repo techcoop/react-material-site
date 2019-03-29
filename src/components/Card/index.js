@@ -10,6 +10,7 @@ export {
   CardAction,
   CardActions,
   CardActionButtons,
+  CardActionButton,
   CardActionIcons 
 } from '@rmwc/card'
 

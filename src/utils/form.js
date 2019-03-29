@@ -32,7 +32,7 @@ export const getFormData = (form) => [].reduce.call(form.elements, (data, elemen
   }
 
   const explode = element.getAttribute('data-explode')
-  if (explode) {
+  if (data[element.name] && explode) {
     data[element.name] = data[element.name].split(explode)
   }
 
