@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 // TODO test coverage
 export const getRouterData = (routes, views, authenticated) => {
@@ -48,53 +48,55 @@ export const getRouterData = (routes, views, authenticated) => {
 
 // TODO test coverage now that it's a real function
 // TODO figure out better way to handle login / signin route
+const PUBLIC_HOME_ROUTE = process.env.PUBLIC_HOME_ROUTE ? process.env.PUBLIC_HOME_ROUTE : '/'
+const AUTH_HOME_ROUTE = process.env.AUTH_HOME_ROUTE ? process.env.AUTH_HOME_ROUTE : '/'
 export const getRouterSwitch = (data, store, extras) => (
   <Switch>
-    {data.map((route, index) => (<Route key={index} path={route.route} exact render={(props) => <route.view {...props} />} />))}
+    {data.map((route, index) => (
+      <Route 
+        exact 
+        key={index}
+        path={route.route}
+        render={(props) => {
+          if (route.authenticated === false) {
+            return <route.view {...props} />
+          }
 
-    {/*
-    {Object.keys(extras).map((type) => {
-      if (type === 'callback' || type === 'NotFound' || type === 'login' || type === 'logout') {
-        return undefined
-      }
-
-      // TODO setup manual routes
-    })}
-    */}
-
-    {extras.callback && 
-      <Route path='/callback' render={(props) => {
-        if (/access_token|id_token|error/.test(props.location.hash)) {
-          store.dispatch(extras.callback())
-        }
-
-        return null
-      }} />
-    }
+          if (route.authenticated === true && store.getState().auth.isAuthenticated()) {
+            return <route.view {...props} />
+          }
+          
+          return <Redirect to={PUBLIC_HOME_ROUTE} />
+        }} />
+    ))}
+    
+    <Route path='/callback' render={() => {
+      return <Redirect to={AUTH_HOME_ROUTE} />
+    }} />
 
     {extras.logout && 
-      <Route path='/logout' render={(props) => {
+      <Route path='/logout' render={() => {
         store.dispatch(extras.logout())
         return null
       }} />
     }
 
     {extras.logout && 
-      <Route path='/signout' render={(props) => {
+      <Route path='/signout' render={() => {
         store.dispatch(extras.logout())
         return null
       }} />
     }
 
     {extras.login && 
-      <Route path='/login' render={(props) => {
+      <Route path='/login' render={() => {
         store.dispatch(extras.login())
         return null
       }} />
     }
 
     {extras.login && 
-      <Route path='/signin' render={(props) => {
+      <Route path='/signin' render={() => {
         store.dispatch(extras.login())
         return null
       }} />

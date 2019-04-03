@@ -1,4 +1,3 @@
-import { replace } from 'connected-react-router'
 import { interfaceMessage } from './ui'
 import auth from '../utils/auth'
 
@@ -6,9 +5,6 @@ import auth from '../utils/auth'
 // Constants
 // ------------------------------------
 export const AUTH_CHANGE = 'AUTH_CHANGE'
-
-const AUTH_HOME_ROUTE = process.env.AUTH_HOME_ROUTE ? process.env.AUTH_HOME_ROUTE : '/'
-const PUBLIC_HOME_ROUTE = process.env.PUBLIC_HOME_ROUTE ? process.env.PUBLIC_HOME_ROUTE : '/'
 
 // ------------------------------------
 // Actions
@@ -40,7 +36,7 @@ export const fetchProfile = () => {
     
     const accessToken = localStorage.getItem('access_token')
     if (!accessToken) {
-      dispatch(replace(PUBLIC_HOME_ROUTE))
+      clearSession()
       return
     }
     
@@ -49,8 +45,8 @@ export const fetchProfile = () => {
       if (err) {
         clearSession()
         console.error('modules/auth :: IDP fetch profile failed with "' + err.errorDescription + '"')
-        dispatch(replace(PUBLIC_HOME_ROUTE))
-        return dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
+        dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
+        return
       }
       
       if (profile) {
@@ -77,8 +73,8 @@ export const login = () => {
 }
 
 // Handle callback for authentication response from IDP
-export const callback = () => {
-  return (dispatch, getState) => {
+export const callback = (cb) => {
+  return async (dispatch, getState) => {
     if (!authEnabled(dispatch, getState)) {
       return
     }
@@ -90,23 +86,28 @@ export const callback = () => {
         localStorage.setItem('id_token', authResult.idToken)
         localStorage.setItem('expires_at', expiresAt)
         localStorage.setItem('picture', authResult.idTokenPayload.picture)
-        dispatch(replace(AUTH_HOME_ROUTE))
         dispatch(authChange({profile: authResult.idTokenPayload}))
+        if (cb) {
+          cb(authResult.idTokenPayload)
+        }
       } else if (err) {
         console.error('modules/auth :: IDP callback failed with "' + err.errorDescription + '"')
-        dispatch(replace(PUBLIC_HOME_ROUTE))
-        return dispatch(interfaceMessage('AUTH_LOGIN_FAILED'))
+        clearSession()
+        if (cb) {
+          cb()
+        }
       }
     })
   }
 }
 
-// Handle logout request by clearing localStorage and removing session state from redux
+// Handle logout request
 export const logout = () => {
-  return (dispatch, getState) => {
+  return async () => {
     clearSession()
-    dispatch(replace(PUBLIC_HOME_ROUTE))
-    dispatch(authChange({profile: {}, settings: {}}))
+    const PUBLIC_HOME_ROUTE = process.env.PUBLIC_HOME_ROUTE ? process.env.PUBLIC_HOME_ROUTE : '/'
+    const returnTo = `${window.location.protocol}//${window.location.host}${PUBLIC_HOME_ROUTE}`
+    auth.logout({ returnTo })
   }
 }
 
@@ -147,6 +148,7 @@ const ACTION_HANDLERS = {
 const initialState = {
   enabled: auth !== undefined,
   isAuthenticated: authenticated,
+  settings: {},
   profile: {
     picture: localStorage.getItem('picture')
   }
