@@ -1,6 +1,6 @@
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import rmwcTestPolyfill from '@rmwc/base/testPolyfill'
+import rmwcTestPolyfill from '@rmwc/base/dist/test-polyfill'
 import 'jest-enzyme'
 import './utils/polyfill'
 
