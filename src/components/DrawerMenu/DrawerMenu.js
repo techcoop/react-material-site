@@ -65,11 +65,9 @@ export const DrawerMenu = props => (
         return (
           <List key={index} className='tc-drawer-menu__spacer'>
             {section.items.map((item, index) => (
-              <ListItem wrap key={index}>
-                <NavLink exact to={item.route} className='tc-drawer-menu__link' activeClassName='mdc-list-item--activated'>
-                  <ListItemGraphic {...item.icon} />
-                  <ListItemText>{getLabel(item.label, props.language)}</ListItemText>
-                </NavLink>
+              <ListItem key={index} tag={NavLink} to={item.route} className='tc-drawer-menu__link' activeClassName='mdc-list-item--activated'>
+                <ListItemGraphic {...item.icon} />
+                <ListItemText>{getLabel(item.label, props.language)}</ListItemText>
               </ListItem>
             ))}
           </List>

@@ -59,11 +59,9 @@ it('contains a List when sections with items are passed and show returns true', 
 
   const list = (
     <List key={0} className='tc-drawer-menu__spacer'>
-      <ListItem wrap key={0}>
-        <NavLink exact to='/test' className='tc-drawer-menu__link' activeClassName='mdc-list-item--activated'>
-          <ListItemGraphic icon='home' />
-          <ListItemText>Test</ListItemText>
-        </NavLink>
+      <ListItem key={0} tag={NavLink} to='/test' className='tc-drawer-menu__link' activeClassName='mdc-list-item--activated'>
+        <ListItemGraphic icon='home' />
+        <ListItemText>Test</ListItemText>
       </ListItem>
     </List>
   )

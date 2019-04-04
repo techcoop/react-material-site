@@ -45,7 +45,7 @@ it('should contain a IconToggle as handle when not authenticated', () => {
 })
 
 it('should contain a IconToggle as handle with profile picture when authenticated', () => {
-  const element = (<IconButton icon='123' iconOptions={{strategy: 'url'}} className='tc-auth-menu__profile-picture' />)
+  const element = (<IconButton icon={<img src={'123'} style={{ borderRadius: '50%' }}/>} />)
   const wrapper = shallow(<AuthMenu {...defaultProps} />)
   expect(wrapper.props().handle).toEqual(element)
 })
@@ -68,7 +68,7 @@ it('should have a Sign In menu item when not authenticated', () => {
   })
   
   const wrapper = shallow(<AuthMenu {...props} />)
-  const linkProps = wrapper.find(Link).props()
+  const linkProps = wrapper.find(MenuItem).props()
 
   expect(linkProps.to).toEqual('/signin')
   expect(linkProps.children).toEqual('Sign In')
@@ -93,7 +93,7 @@ it('should have a Logout and Settings menu items when authenticated', () => {
   })
   
   const wrapper = shallow(<AuthMenu {...props} />)
-  const links = wrapper.find(Link)
+  const links = wrapper.find(MenuItem)
   expect(links.length).toEqual(2)
 
   const linksFirst = links.at(0).props()

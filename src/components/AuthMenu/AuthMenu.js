@@ -16,7 +16,7 @@ export const AuthMenu = props => (
     className={cN('tc-auth-menu', props.className)}
     handle={
       props.auth.isAuthenticated() && props.auth.profile.picture
-        ? <IconButton icon={props.auth.profile.picture} iconOptions={{ strategy: 'url' }} style={{ borderRadius: '50%' }} />
+        ? <IconButton icon={<img src={props.auth.profile.picture} style={{ borderRadius: '50%' }}/>} />
         : <IconButton icon='account_circle' />
     }
   >
@@ -29,10 +29,8 @@ export const AuthMenu = props => (
       return (
         <div key={index}>
           {section.items.map((item, index) => (
-            <MenuItem wrap key={index}>
-              <Link to={item.route}>
-                {getLabel(item.label, props.language)}
-              </Link>
+            <MenuItem key={index} tag={Link} to={item.route}>
+              {getLabel(item.label, props.language)}
             </MenuItem>
           ))}
         </div>
