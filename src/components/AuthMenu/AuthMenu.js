@@ -16,7 +16,7 @@ export const AuthMenu = props => (
     className={cN('tc-auth-menu', props.className)}
     handle={
       props.auth.isAuthenticated() && props.auth.profile.picture
-        ? <IconButton icon={props.auth.profile.picture} iconOptions={{strategy: 'url'}} className='tc-auth-menu__profile-picture' />
+        ? <IconButton icon={props.auth.profile.picture} iconOptions={{ strategy: 'url' }} style={{ borderRadius: '50%' }} />
         : <IconButton icon='account_circle' />
     }
   >
