@@ -48,10 +48,8 @@ export const HeaderMenu = props => (
         {!props.drawerMaximized && 
           <TopAppBarNavigationIcon icon='menu' onClick={props.drawerToggle} />}
         
-        <TopAppBarTitle wrap style={{overflow: 'visible'}} theme='onPrimary'>
-          <Link to='/'>
-            {props.name}
-          </Link>
+        <TopAppBarTitle to='/' tag={Link} style={{overflow: 'visible'}} theme='onPrimary'>
+          {props.name}
         </TopAppBarTitle>
       </TopAppBarSection>
       <TopAppBarSection alignEnd>

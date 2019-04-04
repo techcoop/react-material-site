@@ -14,16 +14,15 @@ it('should pass default className and prop className', () => {
 
 it('should contain a title with a link and name', () => {
   const link = (
-    <TopAppBarTitle wrap style={{overflow: 'visible'}} theme='onPrimary'>
-      <Link to='/'>
-        Test Site
-      </Link>
+    <TopAppBarTitle to='/' tag={Link} style={{overflow: 'visible'}} theme='onPrimary'>
+      Test Site
     </TopAppBarTitle>
   )
 
   const wrapper = shallow(<HeaderMenu name='Test Site' />)
   expect(wrapper).toContainReact(link)
 })
+
 
 it('should render children', () => {
   const element = (<div>test</div>)
@@ -38,7 +37,7 @@ it('should render sections as additional buttons when no icons passed and no rou
       {label: 'Test'},
     ]}
   ]
-  const element = (<Button text='Test' to={undefined} theme='onPrimary' wrap />)
+  const element = (<Button text='Test' to={undefined} theme='onPrimary' />)
 
   const wrapper = shallow(<HeaderMenu sections={sections} />)
   expect(wrapper).toContainReact(element)
@@ -50,7 +49,7 @@ it('should render sections as additional buttons when no icons passed and with a
       {label: 'Test', route: '/test'},
     ]}
   ]
-  const element = (<Button text='Test' to='/test' theme='onPrimary' wrap />)
+  const element = (<Button text='Test' to='/test' theme='onPrimary' />)
 
   const wrapper = shallow(<HeaderMenu sections={sections} />)
   expect(wrapper).toContainReact(element)
