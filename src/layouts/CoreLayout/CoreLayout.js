@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import cN from 'classnames'
+
 import { drawerToggle, drawerClose, languageUpdate, globalMessageReset } from '../../modules/ui'
 import { login, logout } from '../../modules/auth'
 import { openChat } from '../../utils/chat'
@@ -12,7 +13,7 @@ import DrawerMenu from '../../components/DrawerMenu'
 import LanguageMenu from '../../components/LanguageMenu'
 import AuthMenu from '../../components/AuthMenu'
 import CookieNotice from '../../components/CookieNotice'
-import Snackbar from '../../components/Snackbar'
+import { Snackbar, SnackbarAction } from '../../components/Snackbar'
 
 import './CoreLayout.scss'
 
@@ -66,14 +67,24 @@ export const CoreLayout = (props) => (
       
       {props.ui.message && 
         <Snackbar 
-          actionText='Get Support'
-          actionHandler={openChat}
+          action={
+            process.env.CHAT_CLIENT_ID
+            ? <SnackbarAction
+                label='Get Support'
+                onClick={openChat}
+              />
+            : undefined
+          }
           timeout={6000}
           stacked
           onClose={props.globalMessageReset}
           open={props.ui.message !== ''}
-          message={props.ui.message}
-          theme={['secondaryBg', 'onSecondary']}
+          message={
+            <div style={{maxWidth: '300px', padding: '5px'}}>
+              {props.ui.message}
+            </div>
+          }
+          theme={['onSecondary']}
         />}
     </div>
     
