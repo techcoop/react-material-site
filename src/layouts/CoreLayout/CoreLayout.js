@@ -68,13 +68,12 @@ export const CoreLayout = (props) => (
         <Snackbar 
           actionText='Get Support'
           actionHandler={openChat}
-          timeout={0}
-          multiline
-          actionOnBottom
-          onHide={props.globalMessageReset}
-          show={props.ui.message !== ''}
+          timeout={6000}
+          stacked
+          onClose={props.globalMessageReset}
+          open={props.ui.message !== ''}
           message={props.ui.message}
-          theme='secondaryBg onSecondary'
+          theme={['secondaryBg', 'onSecondary']}
         />}
     </div>
     
