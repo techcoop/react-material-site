@@ -1,4 +1,4 @@
-import { Avatar } from '@rmwc/grid' 
+import { Avatar } from '@rmwc/avatar' 
 
 import './Avatar.scss'
 
