@@ -30,6 +30,7 @@
     "framework"
   ],
   "dependencies": {
+    "@rmwc/avatar": "^5.3.1",
     "@rmwc/button": "^5.2.0",
     "@rmwc/card": "^5.2.0",
     "@rmwc/checkbox": "^5.2.0",

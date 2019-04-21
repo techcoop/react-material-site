@@ -75,7 +75,7 @@ export const CoreLayout = (props) => (
               />
             : undefined
           }
-          timeout={6000}
+          timeout={10000}
           stacked
           onClose={props.globalMessageReset}
           open={props.ui.message !== ''}
