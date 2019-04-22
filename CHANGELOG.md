@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.10"></a>
+## [0.7.10](https://github.com/techcoop/react-material-site/compare/v0.7.9...v0.7.10) (2019-04-22)
+
+
+### Bug Fixes
+
+* Fixes import path for scss for chip ([4fa1a40](https://github.com/techcoop/react-material-site/commit/4fa1a40))
+
+
+
 <a name="0.7.9"></a>
 ## [0.7.9](https://github.com/techcoop/react-material-site/compare/v0.7.8...v0.7.9) (2019-04-22)
 
