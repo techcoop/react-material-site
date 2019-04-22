@@ -34,6 +34,7 @@
     "@rmwc/button": "^5.2.0",
     "@rmwc/card": "^5.2.0",
     "@rmwc/checkbox": "^5.2.0",
+    "@rmwc/chip": "^5.3.1",
     "@rmwc/data-table": "^5.2.0",
     "@rmwc/dialog": "^5.2.0",
     "@rmwc/drawer": "^5.2.0",

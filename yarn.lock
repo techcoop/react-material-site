@@ -1031,7 +1031,7 @@
     "@material/shape" "^1.1.1"
     "@material/theme" "^1.1.0"
 
-"@material/checkbox@^1.0.0":
+"@material/checkbox@^1.0.0", "@material/checkbox@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-1.1.0.tgz#f01c4f70e028ac26aa2bbe4ee6de7d7a1384f701"
   integrity sha512-jCrkG8VkN63uH+YRhu7RWIsrYGw2Gu89OEPe+sqGYWsr+BbOuzBBqxrM09rUkXykCyi8gAbxpWZPVGCmcDHtJQ==
@@ -1043,6 +1043,21 @@
     "@material/ripple" "^1.1.0"
     "@material/rtl" "^0.42.0"
     "@material/theme" "^1.1.0"
+    tslib "^1.9.3"
+
+"@material/chips@^1.0.0":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@material/chips/-/chips-1.1.1.tgz#ed39be4c16843f1264c786c2d3049b93f3984a89"
+  integrity sha512-ftpYba7+qEeRWCU9xSHJmkD6UXHo/UQEfqBcH96nt7QTa+ZIyyzcu64lc3OpFgLM8RnugyaAWlJ7i5w510YRiw==
+  dependencies:
+    "@material/animation" "^1.0.0"
+    "@material/base" "^1.0.0"
+    "@material/checkbox" "^1.1.0"
+    "@material/elevation" "^1.1.0"
+    "@material/ripple" "^1.1.0"
+    "@material/shape" "^1.1.1"
+    "@material/theme" "^1.1.0"
+    "@material/typography" "^1.0.0"
     tslib "^1.9.3"
 
 "@material/dialog@^1.0.0":
@@ -1503,6 +1518,17 @@
     "@rmwc/formfield" "^5.3.1"
     "@rmwc/ripple" "^5.3.1"
     "@rmwc/toggleable" "^5.3.1"
+    "@rmwc/types" "^5.3.1"
+
+"@rmwc/chip@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@rmwc/chip/-/chip-5.3.1.tgz#0582a7a3874da066d4bb1f5ad6db10c776173da2"
+  integrity sha512-kQMkZxPgrKECLCi5IFlt5Om7ALJIEoF/YPY+Ugoe4pN9oOLldRLJRC9uThPKQqZEpLeT0jPe8TU0dKOtadZWXg==
+  dependencies:
+    "@material/chips" "^1.0.0"
+    "@rmwc/base" "^5.3.1"
+    "@rmwc/icon" "^5.3.1"
+    "@rmwc/ripple" "^5.3.1"
     "@rmwc/types" "^5.3.1"
 
 "@rmwc/data-table@^5.2.0":
