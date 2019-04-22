@@ -1,6 +1,6 @@
 import { Chip } from '@rmwc/chip' 
 
-import './Chips.scss'
+import './Chip.scss'
 
 // Chip included directly from: https://jamesmfriedman.github.io/rmwc/chips
 export {
