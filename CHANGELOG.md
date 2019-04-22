@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.9"></a>
+## [0.7.9](https://github.com/techcoop/react-material-site/compare/v0.7.8...v0.7.9) (2019-04-22)
+
+
+### Bug Fixes
+
+* Adds chips ([db80443](https://github.com/techcoop/react-material-site/commit/db80443))
+
+
+
 <a name="0.7.8"></a>
 ## [0.7.8](https://github.com/techcoop/react-material-site/compare/v0.7.7...v0.7.8) (2019-04-21)
 
