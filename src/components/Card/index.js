@@ -7,9 +7,11 @@ export {
   Card,
   CardPrimaryAction,
   CardMedia,
+  CardMediaContent,
   CardAction,
   CardActions,
   CardActionButtons,
+  CardActionButton,
   CardActionIcons 
 } from '@rmwc/card'
 
