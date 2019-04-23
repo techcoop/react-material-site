@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.14"></a>
+## [0.7.14](https://github.com/techcoop/react-material-site/compare/v0.7.13...v0.7.14) (2019-04-23)
+
+
+### Bug Fixes
+
+* Changes line endings on index.js ([819e70d](https://github.com/techcoop/react-material-site/commit/819e70d))
+
+
+
 <a name="0.7.13"></a>
 ## [0.7.13](https://github.com/techcoop/react-material-site/compare/v0.7.12...v0.7.13) (2019-04-23)
 
