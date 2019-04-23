@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.12"></a>
+## [0.7.12](https://github.com/techcoop/react-material-site/compare/v0.7.11...v0.7.12) (2019-04-23)
+
+
+### Bug Fixes
+
+* Changes shebang node env ([708ca18](https://github.com/techcoop/react-material-site/commit/708ca18))
+
+
+
 <a name="0.7.11"></a>
 ## [0.7.11](https://github.com/techcoop/react-material-site/compare/v0.7.10...v0.7.11) (2019-04-22)
 
