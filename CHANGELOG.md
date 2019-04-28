@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.15"></a>
+## [0.7.15](https://github.com/techcoop/react-material-site/compare/v0.7.14...v0.7.15) (2019-04-28)
+
+
+### Bug Fixes
+
+* Adds promise wrapper for get profile info, refactors creating webauth to allow new config ([f5f482d](https://github.com/techcoop/react-material-site/commit/f5f482d))
+
+
+
 <a name="0.7.14"></a>
 ## [0.7.14](https://github.com/techcoop/react-material-site/compare/v0.7.13...v0.7.14) (2019-04-23)
 

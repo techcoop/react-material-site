@@ -1,6 +1,6 @@
 {
   "name": "react-material-site",
-  "version": "0.7.14",
+  "version": "0.7.15",
   "description": "A VERY opinionated website framework built with react and material design.",
   "homepage": "https://techcoop.github.io/react-material-site",
   "main": "src/index.js",
