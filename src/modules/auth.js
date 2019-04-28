@@ -1,5 +1,5 @@
 import { interfaceMessage } from './ui'
-import auth from '../utils/auth'
+import auth, { getUserInfo, createAuthClient } from '../utils/auth'
 
 // ------------------------------------
 // Constants
@@ -40,19 +40,25 @@ export const fetchProfile = () => {
       return
     }
     
-    // Fetch user profile from IDP
-    auth.client.userInfo(accessToken, function(err, profile) {
-      if (err) {
-        clearSession()
-        console.error('modules/auth :: IDP fetch profile failed with "' + err.errorDescription + '"')
-        dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
-        return
-      }
-      
-      if (profile) {
-        dispatch(authChange({profile: profile}))
-      }
+    await getUserInfo(auth.client, accessToken).then((profile) => {
+      dispatch(authChange({ profile }))
+    }, (error) => {
+      clearSession()
+      console.error(error)
+      console.error('modules/auth :: IDP fetch profile failed with "' + error.errorDescription + '"')
+      dispatch(interfaceMessage('AUTH_PROFILE_FAILED'))
     })
+  }
+}
+
+// TODO need to fix the way this is implemented, does a full refresh of application
+export const refreshProfile = (callback) => {
+  return async (dispatch, getState) => {
+    if (!authEnabled(dispatch, getState)) {
+      return
+    }
+    
+    createAuthClient({ prompt: 'none' }).authorize()
   }
 }
 

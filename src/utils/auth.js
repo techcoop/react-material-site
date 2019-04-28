@@ -10,7 +10,8 @@ export const defaultConfig = {
 }
 
 // Creates an auth client with config
-export const createAuthClient = (config = defaultConfig) => {
+export const createAuthClient = (config) => {
+  config = Object.assign({}, defaultConfig, config)
   if (!config || !config.enabled) {
     return
   }
@@ -35,14 +36,34 @@ export const createAuthClient = (config = defaultConfig) => {
   if (!config.audience) {
     config.audience = `https://${config.domain}/userinfo`
   }
-
-  return new auth0.WebAuth({
+  
+  const webAuthConfig = {
     clientID: config.id,
     domain: config.domain,
     redirectUri: config.callback,
     audience: config.audience,
     responseType: 'token id_token',
     scope: config.scope
+  }
+
+  if (config.prompt) {
+    webAuthConfig.prompt = config.prompt
+  }
+
+  return new auth0.WebAuth(webAuthConfig)
+}
+
+// Promisify userInfo request
+// TODO remove when auth0 upgrades to promises
+export const getUserInfo = (client, accessToken) => {
+  return new Promise((resolve, reject) => {
+    client.userInfo(accessToken, (err, profile) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(profile)
+      }
+    })
   })
 }
 
