@@ -1483,6 +1483,17 @@
     hyperform "^0.9.9"
     mutation-observer "^1.0.3"
 
+"@rmwc/base@^5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@rmwc/base/-/base-5.4.3.tgz#8d5fda4130d78f221b6042fbc450e5be026ed541"
+  integrity sha512-x7ge7P+zvRCkvGkGwQ/PX1ImIWY0U2AVD/v/a1zJsn5N0TtecYYrCDqWv1FJsNFaori9phnHbJUn9Sd7cDR/6Q==
+  dependencies:
+    "@rmwc/types" "^5.4.3"
+    classnames "^2.2.6"
+    focus-trap "^4.0.2"
+    hyperform "^0.9.9"
+    mutation-observer "^1.0.3"
+
 "@rmwc/button@^5.2.0", "@rmwc/button@^5.3.1":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rmwc/button/-/button-5.3.1.tgz#39276af3856af5da9679513c1c04058553d60987"
@@ -1530,6 +1541,14 @@
     "@rmwc/icon" "^5.3.1"
     "@rmwc/ripple" "^5.3.1"
     "@rmwc/types" "^5.3.1"
+
+"@rmwc/circular-progress@^5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@rmwc/circular-progress/-/circular-progress-5.4.3.tgz#15f63ce0e3f48a7d3db6bd8aef9ff74ba6d0c165"
+  integrity sha512-dCSLy6vZkNxtXGZt7vubnRLw36MwdtP6BzsiZQr4WtRTZG4FG8XWLhCFvbXesxmrZE/Bme4aifqGJeEEu/Undg==
+  dependencies:
+    "@rmwc/base" "^5.4.3"
+    "@rmwc/types" "^5.4.3"
 
 "@rmwc/data-table@^5.2.0":
   version "5.3.1"
@@ -1817,6 +1836,11 @@
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@rmwc/types/-/types-5.3.1.tgz#5dcc1fed0e37cc5349c4bd3e3655c7d634328544"
   integrity sha512-jT4fppbtLiDA6R6zWnabC/3rQ8C1TGw25fnkanrr8LfRZuLxpspbgNXdxq5bjilOxJXP871PQDxU6CMZb8Bxyw==
+
+"@rmwc/types@^5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@rmwc/types/-/types-5.4.3.tgz#f7709d163ad3bee0a7d01acd22e87ee2149c340f"
+  integrity sha512-r365e6+Rz22VNm651mzEBA3EBgNFp2fOK40n5YdGaLQFlm3jcUvD033Dz0D4BmIj2bXzHc+xo60I9feqMMccrA==
 
 "@rmwc/typography@^5.2.0":
   version "5.3.1"
