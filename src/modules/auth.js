@@ -19,11 +19,6 @@ export function authChange (params) {
 // Checks if authentication is enabled
 export const authEnabled = (dispatch, getState) => {
   const state = getState()
-  if (!state.auth.enabled) {
-    console.error('modules/auth :: Auth not configured, check your .env file and ensure all AUTH variables are configured correctly.')
-    dispatch(interfaceMessage('AUTH_NOT_ENABLED'))
-  }
-
   return state.auth.enabled
 }
 
