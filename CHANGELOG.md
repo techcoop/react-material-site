@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.17"></a>
+## [0.7.17](https://github.com/techcoop/react-material-site/compare/v0.7.16...v0.7.17) (2019-05-02)
+
+
+### Bug Fixes
+
+* Removes UI feedback when auth is disabled ([271bbac](https://github.com/techcoop/react-material-site/commit/271bbac))
+
+
+
 <a name="0.7.16"></a>
 ## [0.7.16](https://github.com/techcoop/react-material-site/compare/v0.7.15...v0.7.16) (2019-05-02)
 
