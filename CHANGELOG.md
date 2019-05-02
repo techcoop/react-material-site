@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.16"></a>
+## [0.7.16](https://github.com/techcoop/react-material-site/compare/v0.7.15...v0.7.16) (2019-05-02)
+
+
+### Bug Fixes
+
+* Adds generic loader ([f45ae7f](https://github.com/techcoop/react-material-site/commit/f45ae7f))
+
+
+
 <a name="0.7.15"></a>
 ## [0.7.15](https://github.com/techcoop/react-material-site/compare/v0.7.14...v0.7.15) (2019-04-28)
 
