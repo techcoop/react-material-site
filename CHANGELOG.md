@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.18"></a>
+## [0.7.18](https://github.com/techcoop/react-material-site/compare/v0.7.17...v0.7.18) (2019-05-03)
+
+
+### Bug Fixes
+
+* Fixes depcrecation notices and updates tests ([b781a72](https://github.com/techcoop/react-material-site/commit/b781a72))
+
+
+
 <a name="0.7.17"></a>
 ## [0.7.17](https://github.com/techcoop/react-material-site/compare/v0.7.16...v0.7.17) (2019-05-02)
 
