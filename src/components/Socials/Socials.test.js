@@ -32,8 +32,7 @@ it('it should output an href with icon for an item', () => {
       className='tc-socials__item'
     >
       <Icon
-        icon='testsocial'
-        iconOptions={{strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-'}}
+        icon={{ icon: 'testsocial', strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-' }}
       />
     </a>
   )
@@ -61,8 +60,7 @@ it('it should output an href with icon for an item with empty target and custom 
       className='tc-socials__item'
     >
       <Icon
-        icon='testsocial'
-        iconOptions={{strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-'}}
+        icon={{ icon: 'testsocial', strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-' }}
       />
     </a>
   )

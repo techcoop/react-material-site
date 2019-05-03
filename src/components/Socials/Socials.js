@@ -30,8 +30,7 @@ export const Socials = props => (
         style={props.itemStyle}
       >
         <Icon
-          icon={item.type}
-          iconOptions={{strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-'}}
+          icon={{ icon: item.type, strategy: 'className', basename: 'isc-socials', prefix: 'isc-socials-' }}
         />
       </a>
     ))}

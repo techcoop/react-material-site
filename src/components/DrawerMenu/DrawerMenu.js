@@ -30,14 +30,6 @@ import './DrawerMenu.scss'
 // import LogoImage from './logo.png'
 // <img src={LogoImage} className='logo-image' />
 
-const getIconOptions = (icon) => {
-  if ((icon && icon.startsWith('http://')) || (icon && icon.startsWith('http://'))) {
-    return {startegy: 'url'}
-  }
-
-  return {}
-}
-
 export const DrawerMenu = props => (
   <Drawer 
     modal={!props.maximized}
@@ -50,7 +42,7 @@ export const DrawerMenu = props => (
   {!props.maximized &&
     <DrawerHeader className='tc-drawer-menu__header'>
       <DrawerTitle className='tc-drawer-menu__header-title'>
-        {props.logo && <Icon icon={props.logo} iconOptions={getIconOptions(props.logo)} className='tc-drawer-menu__header-icon' />}
+        {props.logo && <Icon icon={props.logo} className='tc-drawer-menu__header-icon' />}
         <span className='tc-drawer-menu__header-text'>{props.name}</span>
       </DrawerTitle>
     </DrawerHeader>}
@@ -69,9 +61,8 @@ export const DrawerMenu = props => (
                 key={index}
                 tag={NavLink}
                 to={item.route}
-                className='tc-drawer-menu__link'
                 strict
-                //activeClassName='mdc-list-item--activated'
+                className='tc-drawer-menu__link'
               >
                 <ListItemGraphic {...item.icon} />
                 <ListItemText>{getLabel(item.label, props.language)}</ListItemText>

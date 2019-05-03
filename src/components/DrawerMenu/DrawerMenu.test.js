@@ -53,13 +53,13 @@ it('contains a DrawerHeader with name if maximized is false', () => {
 it('contains a List when sections with items are passed and show returns true', () => {
   const sections = [
     {show: () => (true), items: [
-      {icon: {icon: 'home'}, label: 'Test', route: '/test'},
+      { icon: { icon: 'home' }, label: 'Test', route: '/test' },
     ]}
   ]
 
   const list = (
     <List key={0} className='tc-drawer-menu__spacer'>
-      <ListItem key={0} tag={NavLink} to='/test' className='tc-drawer-menu__link' activeClassName='mdc-list-item--activated'>
+      <ListItem key={0} tag={NavLink} to='/test' strict className='tc-drawer-menu__link'>
         <ListItemGraphic icon='home' />
         <ListItemText>Test</ListItemText>
       </ListItem>
@@ -73,17 +73,15 @@ it('contains a List when sections with items are passed and show returns true', 
 it('does not contain a NavLink when sections with items are passed but show returns false', () => {
   const sections = [
     {show: () => (false), items: [
-      {icon: {icon: 'home'}, label: 'Test', route: '/test'},
+      { icon: { icon: 'home' }, label: 'Test', route: '/test' },
     ]}
   ]
-
+  
   const list = (
     <List key={0} className='tc-drawer-menu__spacer'>
-      <ListItem wrap key={0}>
-        <NavLink exact to='/test' className='tc-drawer-menu__link' activeClassName='tc-drawer-menu__link-active mdc-temporary-drawer--selected'>
-          <ListItemGraphic icon='home' />
-          <ListItemText>Test</ListItemText>
-        </NavLink>
+      <ListItem key={0} tag={NavLink} to='/test' strict className='tc-drawer-menu__link'>
+        <ListItemGraphic icon='home' />
+        <ListItemText>Test</ListItemText>
       </ListItem>
     </List>
   )
