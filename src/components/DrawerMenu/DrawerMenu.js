@@ -63,6 +63,7 @@ export const DrawerMenu = props => (
                 to={item.route}
                 strict
                 className='tc-drawer-menu__link'
+                //activeClassName='mdc-list-item--activated'
               >
                 <ListItemGraphic {...item.icon} />
                 <ListItemText>{getLabel(item.label, props.language)}</ListItemText>
