@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.20"></a>
+## [0.7.20](https://github.com/techcoop/react-material-site/compare/v0.7.19...v0.7.20) (2019-05-07)
+
+
+### Bug Fixes
+
+* Adds additional handling for toggle routes ([05881a4](https://github.com/techcoop/react-material-site/commit/05881a4))
+
+
+
 <a name="0.7.19"></a>
 ## [0.7.19](https://github.com/techcoop/react-material-site/compare/v0.7.18...v0.7.19) (2019-05-03)
 
