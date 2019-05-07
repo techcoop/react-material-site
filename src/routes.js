@@ -9,7 +9,17 @@ export const getRouterData = (routes, views, authenticated) => {
   routes.forEach((section) => {
     if (section.items) {
       let menuSection = {
-        show: () => !section.authenticated || (section.authenticated && authenticated()),
+        show: () => {
+          if (section.toggle) {
+            if (section.authenticated === authenticated()) {
+              return true
+            } else {
+              return false
+            }
+          } else {
+            return !section.authenticated || (section.authenticated && authenticated())
+          }
+        },
         authenticated: section.authenticated,
         items: []
       }
